@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ChatPage extends StatelessWidget {
+class FillBlankPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
