@@ -7,7 +7,10 @@ import 'ChatPage.dart';
 import 'MinigamePage.dart';
 import 'QuizzerPage.dart';
 
+
 class QuizPage extends StatelessWidget {
+  const QuizPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +68,7 @@ class QuizPage extends StatelessWidget {
             ),
           ),
         ]
-    )
+      )
     );
   }
 }

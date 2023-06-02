@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Components/StandardButton.dart';
+import 'package:flutter_app/Pages/SettingsPage.dart';
+import 'package:flutter_app/Pages/StatsPage.dart';
 import 'QuizPage.dart';
 import 'ChatPage.dart';
 import 'MinigamePage.dart';
+import 'StatsPage.dart';
+import 'SettingsPage.dart';
 
-class Home extends StatelessWidget {
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,11 +50,21 @@ class Home extends StatelessWidget {
                 }));
               }),
             ),
-          ), //Quizzer button
+          ), //Quizzer
           Center(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Stats", () {
+              child: StandardButton("Chat", () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return ChatPage();
+                }));
+              }),
+            ),
+          ), //Chat Button
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: StandardButton("Minigame", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return MinigamePage();
                 }));
@@ -57,15 +74,30 @@ class Home extends StatelessWidget {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Settings", () {
+              child: StandardButton("Stats", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return MinigamePage();
+                  return StatsPage();
                 }));
               }),
             ),
-          ),//Minigame button
+          ), //Stats Page
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: StandardButton("Settings", () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SettingsPage();
+                }));
+              }),
+            ),
+          ), //Settings Page
         ],
       ),
+    );
+  }
+}
+
+/*
       bottomNavigationBar: BottomAppBar(
         color: ColorConstants.blueBackground,
         child: Row(
@@ -88,6 +120,4 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
+       */
