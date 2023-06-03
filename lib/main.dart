@@ -1,11 +1,10 @@
-import 'dart:js_util';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Pages/HomePage.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 
 void main() => runApp(const MyApp());
 bool toHome = false;
+int a = 10;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,20 +19,23 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text(appTitle),
         ),
-        body: const Column(
+        body: Column(
           children: [
-            Center(
+            if(toHome)...[
+              HomePage()
+            ],
+            const Center(
               child: Padding(
                 padding: EdgeInsets.all(12.0),
                 child: LoginInput('Username'),
               ),
             ),
-            Center(
+            const Center(
               child: Padding(
                 padding: EdgeInsets.all(12.0),
                 child: LoginInput('Password'),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -78,7 +80,7 @@ class LoginInputState extends State<LoginInput> {
             child: ElevatedButton(
               onPressed: () {
                 if (_loginKey.currentState!.validate()) {
-                  if(equal(_loginKey.currentState, 'James')){
+                  if(nLabel == 'James'){
                     toHome = true;
                   }
                 }
