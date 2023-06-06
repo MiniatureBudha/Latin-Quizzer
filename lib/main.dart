@@ -4,20 +4,18 @@ import 'package:flutter_app/Constants/color_constants.dart';
 
 void main() => runApp(const MyApp());
 bool toHome = false;
-int a = 10;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const appTitle = 'Login Page';
 
     return MaterialApp(
-      title: appTitle,
+      title: 'Login Page',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(appTitle),
+          title: const Text('Login Page'),
         ),
         body: Column(
           children: [
