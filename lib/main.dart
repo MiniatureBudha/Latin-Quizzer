@@ -1,93 +1,118 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Pages/HomePage.dart';
-import 'package:flutter_app/Constants/color_constants.dart';
+
+import 'Components/StandardButton.dart';
+import 'Constants/color_constants.dart';
 
 void main() => runApp(const MyApp());
-bool toHome = false;
+bool toHome1 = false;
+bool toHome2 = false;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return const MaterialApp(
+        home: MyLogin()
+    );
+  }
+}
 
-    return MaterialApp(
-      title: 'Login Page',
-      home: Scaffold(
+class MyLogin extends StatelessWidget {
+  const MyLogin({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    if(toHome1 && toHome2){
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return const HomePage();
+        }));
+    }
+    return const MaterialApp(
+      title: 'Retrieve Text Input',
+      home: LoginData(),
+    );
+  }
+}
+//body: const LoginInput(),
+class LoginData extends StatefulWidget {
+  const LoginData({super.key});
+
+  @override
+  State<LoginData> createState() => _LoginDataState();
+}
+
+class _LoginDataState extends State<LoginData> {
+  final myController1 = TextEditingController();
+  final myController2 = TextEditingController();
+
+  @override
+  void dispose() {
+    myController1.dispose();
+    myController2.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           title: const Text('Login Page'),
         ),
         body: Column(
           children: [
-            if(toHome)...[
-              HomePage()
-            ],
-            const Center(
+            Center(
               child: Padding(
-                padding: EdgeInsets.all(12.0),
-                child: LoginInput('Username'),
+                padding: const EdgeInsets.all(16.0),
+                child: TextFormField(
+                  controller: myController1,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Username';
+                    }
+                    return null;
+                  },
+                ),
               ),
             ),
-            const Center(
+            Center(
               child: Padding(
-                padding: EdgeInsets.all(12.0),
-                child: LoginInput('Password'),
+                padding: const EdgeInsets.all(16.0),
+                child: TextFormField(
+                  controller: myController2,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Password';
+                    }
+                    return null;
+                  },
+                ),
               ),
             ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 18.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if(myController1.text == 'James'){
+                      toHome1 = true;
+                      if(myController2.text == '1111'){
+                        toHome2 = true;
+                      }
+                    }
+                    if(toHome1 && toHome2){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return HomePage();
+                      }));
+                    }
+                  },
+                  child: const Text('Enter'),
+                ),
+              ),
+            )
           ],
-        ),
-      ),
-    );
-  }
-}
-//body: const LoginInput(),
-class LoginInput extends StatefulWidget {
-  final String textLabel;
-  const LoginInput(this.textLabel, {super.key});
-
-  @override
-  LoginInputState createState() => LoginInputState();
-}
-
-class LoginInputState extends State<LoginInput> {
-  final _loginKey = GlobalKey<FormState>();
-
-  @override
-  Widget build(BuildContext context) {
-    final String nLabel = widget.textLabel;
-    return Form(
-      key: _loginKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextFormField(
-            decoration: InputDecoration(
-              border: const UnderlineInputBorder(),
-              labelText: nLabel,
-            ),
-            // The validator receives the text that the user has entered.
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please Enter $nLabel';
-              }
-              return null;
-            },
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18.0),
-            child: ElevatedButton(
-              onPressed: () {
-                if (_loginKey.currentState!.validate()) {
-                  if(nLabel == 'James'){
-                    toHome = true;
-                  }
-                }
-              },
-              child: const Text('Enter'),
-            ),
-          ),
-        ],
-      ),
+        )
     );
   }
 }

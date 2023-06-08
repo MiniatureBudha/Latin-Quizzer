@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'HomePage.dart';
 
 bool toHome1 = false;
@@ -86,7 +85,17 @@ class _LoginDataState extends State<LoginData> {
                       toHome2 = true;
                     }
                   }
-                },
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        // Retrieve the text the that user has entered by using the
+                        // TextEditingController.
+                        content: Text(myController1.text),
+                      );
+                      },
+                  );
+                  },
                 child: const Text('Enter'),
               ),
             ),
