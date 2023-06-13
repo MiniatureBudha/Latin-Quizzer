@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Pages/HomePage.dart';
 
-import 'Components/StandardButton.dart';
 import 'Constants/color_constants.dart';
 
 void main() => runApp(const MyApp());
@@ -57,15 +56,26 @@ class _LoginDataState extends State<LoginData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: ColorConstants.blueBackground,
         appBar: AppBar(
           title: const Text('Login Page'),
         ),
         body: Column(
           children: [
             Center(
+              child: Container(
+                width: 50,
+                height: 200,
+                color: const Color(0xff1D174F),
+              ),
+            ),
+            Center(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
                   controller: myController1,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -80,6 +90,9 @@ class _LoginDataState extends State<LoginData> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
                   controller: myController2,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -95,7 +108,7 @@ class _LoginDataState extends State<LoginData> {
                 padding: const EdgeInsets.symmetric(vertical: 18.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    if(myController1.text == 'James'){
+                    if(myController1.text == 'Username'){
                       toHome1 = true;
                       if(myController2.text == '1111'){
                         toHome2 = true;
