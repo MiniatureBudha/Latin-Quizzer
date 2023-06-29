@@ -7,26 +7,25 @@ import 'ChatPage.dart';
 import 'MinigamePage.dart';
 import 'QuizzerPage.dart';
 
-
 class QuizPage extends StatelessWidget {
   const QuizPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.blueBackground,
-      appBar: AppBar(
-        title: const Text('Quiz Options',
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: 'M PLUS Code Latin',
-          ),
-        ),
         backgroundColor: ColorConstants.blueBackground,
-      ),
-    body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
+        appBar: AppBar(
+          title: const Text(
+            'Quiz Options',
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'M PLUS Code Latin',
+            ),
+          ),
+          backgroundColor: ColorConstants.blueBackground,
+        ),
+        body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <
+            Widget>[
           Center(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -51,7 +50,8 @@ class QuizPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: StandardButton("Quizzer", () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
                   return QuizzerPage();
                 }));
               }),
@@ -67,8 +67,6 @@ class QuizPage extends StatelessWidget {
               }),
             ),
           ),
-        ]
-      )
-    );
+        ]));
   }
 }

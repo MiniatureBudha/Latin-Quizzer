@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        home: MyLogin()
-    );
+    return const MaterialApp(home: MyLogin());
   }
 }
 
@@ -23,10 +21,10 @@ class MyLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(toHome1 && toHome2){
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const HomePage();
-        }));
+    if (toHome1 && toHome2) {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+        return const HomePage();
+      }));
     }
     return const MaterialApp(
       title: 'Retrieve Text Input',
@@ -34,6 +32,7 @@ class MyLogin extends StatelessWidget {
     );
   }
 }
+
 //body: const LoginInput(),
 class LoginData extends StatefulWidget {
   const LoginData({super.key});
@@ -108,14 +107,15 @@ class _LoginDataState extends State<LoginData> {
                 padding: const EdgeInsets.symmetric(vertical: 18.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    if(myController1.text == 'Username'){
+                    if (myController1.text == 'Username') {
                       toHome1 = true;
-                      if(myController2.text == '1111'){
+                      if (myController2.text == '1111') {
                         toHome2 = true;
                       }
                     }
-                    if(toHome1 && toHome2){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    if (toHome1 && toHome2) {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
                         return HomePage();
                       }));
                     }
@@ -125,7 +125,6 @@ class _LoginDataState extends State<LoginData> {
               ),
             )
           ],
-        )
-    );
+        ));
   }
 }

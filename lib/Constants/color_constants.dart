@@ -13,4 +13,7 @@ class ColorConstants {
 
   static Color blueBackground = const Color(0xff1D174F);
   static Color buttonColor = const Color(0xff221C5F);
+
+  static Color correctGreen = const Color(0xff70A94C);
+  static Color incorrectRed = const Color(0xffB05B5B);
 }

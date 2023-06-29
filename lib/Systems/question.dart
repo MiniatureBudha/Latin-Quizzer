@@ -10,5 +10,13 @@ class Question {
     return false;
   }
 
+  String getQuestionText() {
+    return questionText;
+  }
+
+  String getAnswerText() {
+    return answerText;
+  }
+
   void reverse() {}
 }

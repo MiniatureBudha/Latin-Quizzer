@@ -9,7 +9,6 @@ import 'MinigamePage.dart';
 import 'StatsPage.dart';
 import 'SettingsPage.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -18,7 +17,9 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorConstants.blueBackground,
       appBar: AppBar(
-        title: const Text('Home',
+        automaticallyImplyLeading: false,
+        title: const Text(
+          'Home',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'M PLUS Code Latin',
@@ -32,7 +33,8 @@ class HomePage extends StatelessWidget {
           Center(
             child: Container(
               margin: const EdgeInsets.fromLTRB(0, 125, 0, 150),
-              child: const Text('Latin Learner',
+              child: const Text(
+                'Latin Learner',
                 style: TextStyle(
                   fontSize: 40,
                   color: Colors.white,
