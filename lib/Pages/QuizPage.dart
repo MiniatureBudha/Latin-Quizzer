@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Pages/FillBlankPage.dart';
+import 'package:flutter_app/Pages/NovellaPage.dart';
 
 import '../Components/StandardButton.dart';
 import '../Constants/color_constants.dart';
 import 'ChatPage.dart';
 import 'MinigamePage.dart';
 import 'QuizzerPage.dart';
+import 'NovellaPage2.dart';
+import 'NovellaPage3.dart';
 
 class QuizPage extends StatelessWidget {
   const QuizPage({super.key});
@@ -26,16 +28,7 @@ class QuizPage extends StatelessWidget {
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <
             Widget>[
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Chat", () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ChatPage();
-                }));
-              }),
-            ),
-          ), //Chat button
+          /*
           Center(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -46,27 +39,60 @@ class QuizPage extends StatelessWidget {
               }),
             ),
           ),
+           */
           Center(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Quizzer", () {
+              child: StandardButton("Reading Comprehension 1", () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NovellaPage();
+                }));
+              }),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: StandardButton("Reading Comprehension 2", () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NovellaPage2();
+                }));
+              }),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: StandardButton("Reading Comprehension 3", () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NovellaPage3();
+                }));
+              }),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: StandardButton("Common Words", () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) {
-                  return QuizzerPage();
-                }));
+                      return QuizzerPage();
+                    }));
               }),
             ),
           ),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Fill In The Blank", () {
+              child: StandardButton("Latin Chat AI", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return FillBlankPage();
+                  return ChatPage();
                 }));
               }),
             ),
-          ),
-        ]));
+          ), //Chat button
+        ]
+        )
+    );
   }
 }

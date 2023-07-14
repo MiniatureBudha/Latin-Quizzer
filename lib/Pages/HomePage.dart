@@ -4,10 +4,6 @@ import 'package:flutter_app/Components/StandardButton.dart';
 import 'package:flutter_app/Pages/SettingsPage.dart';
 import 'package:flutter_app/Pages/StatsPage.dart';
 import 'QuizPage.dart';
-import 'ChatPage.dart';
-import 'MinigamePage.dart';
-import 'StatsPage.dart';
-import 'SettingsPage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,7 +17,7 @@ class HomePage extends StatelessWidget {
         title: const Text(
           'Home',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontFamily: 'M PLUS Code Latin',
           ),
         ),
@@ -53,26 +49,6 @@ class HomePage extends StatelessWidget {
               }),
             ),
           ), //Quizzer
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Chat", () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ChatPage();
-                }));
-              }),
-            ),
-          ), //Chat Button
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Minigame", () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return MinigamePage();
-                }));
-              }),
-            ),
-          ),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(12.0),

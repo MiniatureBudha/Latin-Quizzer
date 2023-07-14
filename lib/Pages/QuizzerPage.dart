@@ -44,8 +44,8 @@ class QuizzerPageState extends State<QuizzerPage> {
           barrierDismissible: false,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text(
-                'Nice job!',
+              title: const Text(
+                'COMPLETE',
                 style: TextStyle(
                   fontSize: 50,
                   color: Colors.white,
@@ -53,12 +53,8 @@ class QuizzerPageState extends State<QuizzerPage> {
                 ),
               ),
               content: Text(
-                'You scored ' +
-                    correctlyAnswered.toString() +
-                    ' out of ' +
-                    q.size().toString() +
-                    '.',
-                style: TextStyle(
+                '$correctlyAnswered out of ${q.size()} correct.',
+                style: const TextStyle(
                   fontSize: 20,
                   color: Colors.white,
                   fontFamily: 'M PLUS Code Latin',
@@ -67,14 +63,6 @@ class QuizzerPageState extends State<QuizzerPage> {
               backgroundColor: ColorConstants.blueBackground,
               actions: <Widget>[
                 TextButton(
-                  child: Text(
-                    'Keep studying!',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
-                    ),
-                  ),
                   onPressed: () {
                     if (correctlyAnswered == q.size()) {
                       q.reset();
@@ -97,22 +85,30 @@ class QuizzerPageState extends State<QuizzerPage> {
                   style: TextButton.styleFrom(
                     backgroundColor: ColorConstants.buttonColor,
                   ),
-                ),
-                TextButton(
-                  child: Text(
-                    'Home',
+                  child: const Text(
+                    'Take Quiz Again',
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                       fontFamily: 'M PLUS Code Latin',
                     ),
                   ),
+                ),
+                TextButton(
                   onPressed: () => Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) {
-                    return HomePage();
+                    return const HomePage();
                   })),
                   style: TextButton.styleFrom(
                     backgroundColor: ColorConstants.buttonColor,
+                  ),
+                  child: const Text(
+                    'Home',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontFamily: 'M PLUS Code Latin',
+                    ),
                   ),
                 ),
               ],
@@ -122,8 +118,10 @@ class QuizzerPageState extends State<QuizzerPage> {
 
     setState(() {
       progressPercent += (100 * (1 / q.size()));
-      for (int i = 0; i < 4; i++) //resets answer choice colors to default
+      for (int i = 0; i < 4; i++) {
+        //resets answer choice colors to default
         answerChoiceColors[i] = ColorConstants.buttonColor;
+      }
       q.nextQuestion();
       changeAnswerChoices();
     });
@@ -143,8 +141,10 @@ class QuizzerPageState extends State<QuizzerPage> {
       String randomAnswer = q.randomAnswer();
 
       while (randomAnswer ==
-          q.getCorrectAnswer()) //makes sure it's not the right answer
+          q.getCorrectAnswer()) {
+        //makes sure it's not the right answer
         randomAnswer = q.randomAnswer();
+      }
 
       wrongChoices[i] = randomAnswer;
     }
@@ -155,8 +155,9 @@ class QuizzerPageState extends State<QuizzerPage> {
       if (wrongChoices[0] == wrongChoices[1]) {
         String randomAnswer = q.randomAnswer();
 
-        while (randomAnswer == q.getCorrectAnswer())
+        while (randomAnswer == q.getCorrectAnswer()) {
           randomAnswer = q.randomAnswer();
+        }
 
         wrongChoices[1] = randomAnswer;
       }
@@ -164,8 +165,9 @@ class QuizzerPageState extends State<QuizzerPage> {
       if (wrongChoices[0] == wrongChoices[2]) {
         String randomAnswer = q.randomAnswer();
 
-        while (randomAnswer == q.getCorrectAnswer())
+        while (randomAnswer == q.getCorrectAnswer()) {
           randomAnswer = q.randomAnswer();
+        }
 
         wrongChoices[2] = randomAnswer;
       }
@@ -173,8 +175,9 @@ class QuizzerPageState extends State<QuizzerPage> {
       if (wrongChoices[1] == wrongChoices[2]) {
         String randomAnswer = q.randomAnswer();
 
-        while (randomAnswer == q.getCorrectAnswer())
+        while (randomAnswer == q.getCorrectAnswer()) {
           randomAnswer = q.randomAnswer();
+        }
 
         wrongChoices[2] = randomAnswer;
       }
@@ -189,7 +192,9 @@ class QuizzerPageState extends State<QuizzerPage> {
       }
     }
 
-    for (int i = 0; i < 4; i++) answerChoicesList.add(choices[i]);
+    for (int i = 0; i < 4; i++) {
+      answerChoicesList.add(choices[i]);
+    }
   }
 
   void initialize() {

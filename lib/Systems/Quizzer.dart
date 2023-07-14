@@ -1,17 +1,15 @@
-import 'package:flutter/material.dart';
 import 'question.dart';
-import 'word.dart';
 import 'dart:math';
 
 class Quizzer {
   int _questionNumber = 0;
-  List<Question> _questionBank = [
-    new Question("1+1", "2"),
-    new Question("2+2", "4"),
-    new Question("10+10", "20"),
-    new Question("100+100", "200"),
-    new Question("10*10", "100"),
-    new Question("15*15", "225"),
+  final List<Question> _questionBank = [
+    Question("1+1", "2"),
+    Question("2+2", "4"),
+    Question("10+10", "20"),
+    Question("100+100", "200"),
+    Question("10*10", "100"),
+    Question("15*15", "225"),
   ];
   List<Question> _originalBank =
   []; //preserves original questions so that even after another round with less questions is started, random answer choices still draw from original bank (so that there's no repeats when there's less than 4 questions)

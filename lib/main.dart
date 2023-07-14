@@ -65,7 +65,7 @@ class _LoginDataState extends State<LoginData> {
               child: Container(
                 width: 50,
                 height: 200,
-                color: const Color(0xff1D174F),
+                color: ColorConstants.blueBackground,
               ),
             ),
             Center(
@@ -73,7 +73,7 @@ class _LoginDataState extends State<LoginData> {
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                   controller: myController1,
                   validator: (value) {
@@ -90,7 +90,7 @@ class _LoginDataState extends State<LoginData> {
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                   controller: myController2,
                   validator: (value) {
