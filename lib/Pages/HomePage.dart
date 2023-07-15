@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Components/StandardButton.dart';
 import 'package:flutter_app/Pages/SettingsPage.dart';
+import 'package:flutter_app/Pages/SnippetsQuizPage.dart';
 import 'package:flutter_app/Pages/StatsPage.dart';
 import 'QuizPage.dart';
+import 'RomeQuizPage.dart';
+import 'LatinQuiz.dart';
+
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,17 +16,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.blueBackground,
+      backgroundColor: ColorConstants.whiteBackround,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
           'Home',
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.red,
             fontFamily: 'M PLUS Code Latin',
           ),
         ),
-        backgroundColor: ColorConstants.blueBackground,
+        backgroundColor: Colors.yellow,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,7 +38,7 @@ class HomePage extends StatelessWidget {
                 'Latin Learner',
                 style: TextStyle(
                   fontSize: 40,
-                  color: Colors.white,
+                  color: Colors.red,
                   fontFamily: 'Cedarville Cursive',
                 ),
               ),
@@ -41,61 +46,50 @@ class HomePage extends StatelessWidget {
           ), //says Latin Learner
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Quizzing Options", () {
+              padding: const EdgeInsets.all(10.0),
+              child: StandardButton("Introduction to Latin", () {
+                Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return QuizPage();
+                  return QuizPage(); //Make text pages later
                 }));
               }),
             ),
-          ), //Quizzer
+          ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Stats", () {
+              padding: const EdgeInsets.all(10.0),
+              child: StandardButton("Ancient Rome in our Modern World", () {
+                Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return StatsPage();
+                  return RomeQuizPage();
                 }));
               }),
             ),
-          ), //Stats Page
+          ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: StandardButton("Settings", () {
+              padding: const EdgeInsets.all(10.0),
+              child: StandardButton("Latin Snippets", () {
+                Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return SettingsPage();
+                  return SnippetsQuizPage();
                 }));
               }),
             ),
-          ), //Settings Page
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: StandardButton("Why Study Latin", () {
+                Colors.yellow;
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return LatinQuiz();
+                }));
+              }),
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-/*
-      bottomNavigationBar: BottomAppBar(
-        color: ColorConstants.blueBackground,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            OutlinedButton(
-              style: TextButton.styleFrom(
-                backgroundColor: ColorConstants.buttonColor,
-              ),
-              onPressed: (){},
-              child: Icon(
-                text,
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontFamily: 'M PLUS Code Latin',
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-       */

@@ -1,130 +1,102 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Pages/HomePage.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_app/Constants/color_constants.dart';
+import 'package:flutter_app/Components/StandardButton.dart';
+import 'package:flutter_app/Pages/SnippetsQuizPage.dart';
+import 'package:flutter_app/Pages/RomeQuizPage.dart';
+import 'package:flutter_app/Pages/LatinQuiz.dart';
+import 'package:flutter_app/Pages/QuizPage.dart';
+import 'dart:typed_data';
+import 'package:flutter/services.dart';
+
 
 import 'Constants/color_constants.dart';
+import 'Pages/Intro1.dart';
 
 void main() => runApp(const MyApp());
-bool toHome1 = false;
-bool toHome2 = false;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: MyLogin());
-  }
-}
-
-class MyLogin extends StatelessWidget {
-  const MyLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
-    if (toHome1 && toHome2) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const HomePage();
-      }));
-    }
-    return const MaterialApp(
-      title: 'Retrieve Text Input',
-      home: LoginData(),
-    );
+    return const MaterialApp(home: HomePage());
   }
 }
 
-//body: const LoginInput(),
-class LoginData extends StatefulWidget {
-  const LoginData({super.key});
-
-  @override
-  State<LoginData> createState() => _LoginDataState();
-}
-
-class _LoginDataState extends State<LoginData> {
-  final myController1 = TextEditingController();
-  final myController2 = TextEditingController();
-
-  @override
-  void dispose() {
-    myController1.dispose();
-    myController2.dispose();
-    super.dispose();
-  }
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorConstants.blueBackground,
-        appBar: AppBar(
-          title: const Text('Login Page'),
+      backgroundColor: ColorConstants.whiteBackround,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text(
+          'Home',
+          style: TextStyle(
+            color: Colors.red,
+            fontFamily: 'M PLUS Code Latin',
+          ),
         ),
-        body: Column(
-          children: [
-            Center(
-              child: Container(
-                width: 50,
-                height: 200,
-                color: ColorConstants.blueBackground,
-              ),
+        backgroundColor: Colors.yellow,
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Center(
+            child: Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+               child: const Image(image: ResizeImage(AssetImage('assets/Logo.png'), width: 220, height: 220)),
             ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextFormField(
-                  style: const TextStyle(
-                    color: Colors.black,
-                  ),
-                  controller: myController1,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Username';
-                    }
-                    return null;
-                  },
-                ),
-              ),
+          ), //says Latin Learner
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: StandardButton("Introduction to Latin", () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Intro1(); //Make text pages later
+                }));
+              }),
             ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextFormField(
-                  style: const TextStyle(
-                    color: Colors.black,
-                  ),
-                  controller: myController2,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Password';
-                    }
-                    return null;
-                  },
-                ),
-              ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: StandardButton("Ancient Rome in our Modern World", () {
+                Colors.yellow;
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return RomeQuizPage();
+                }));
+              }),
             ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 18.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (myController1.text == 'Username') {
-                      toHome1 = true;
-                      if (myController2.text == '1111') {
-                        toHome2 = true;
-                      }
-                    }
-                    if (toHome1 && toHome2) {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return HomePage();
-                      }));
-                    }
-                  },
-                  child: const Text('Enter'),
-                ),
-              ),
-            )
-          ],
-        ));
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: StandardButton("Latin Snippets", () {
+                Colors.yellow;
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SnippetsQuizPage();
+                }));
+              }),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: StandardButton("Why Study Latin", () {
+                Colors.yellow;
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return LatinQuiz();
+                }));
+              }),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

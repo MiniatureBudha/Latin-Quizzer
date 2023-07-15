@@ -3,7 +3,7 @@ import 'package:flutter_app/Pages/NovellaPage.dart';
 
 import '../Components/StandardButton.dart';
 import '../Constants/color_constants.dart';
-import 'ChatPage.dart';
+import 'ChatBotPage.dart';
 import 'MinigamePage.dart';
 import 'QuizzerPage.dart';
 import 'NovellaPage2.dart';
@@ -15,7 +15,7 @@ class QuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorConstants.blueBackground,
+        backgroundColor: ColorConstants.whiteBackround,
         appBar: AppBar(
           title: const Text(
             'Quiz Options',
@@ -24,7 +24,7 @@ class QuizPage extends StatelessWidget {
               fontFamily: 'M PLUS Code Latin',
             ),
           ),
-          backgroundColor: ColorConstants.blueBackground,
+          backgroundColor: ColorConstants.whiteBackround,
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <
             Widget>[
@@ -86,7 +86,7 @@ class QuizPage extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: StandardButton("Latin Chat AI", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ChatPage();
+                  return ChatBotPage();
                 }));
               }),
             ),
