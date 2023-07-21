@@ -13,7 +13,7 @@ class ExpandableButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (color == null) color = ColorConstants.deepPurple;
+    color ??= ColorConstants.deepPurple;
 
     return Expanded(
       child: Padding(
@@ -22,15 +22,16 @@ class ExpandableButton extends StatelessWidget {
           style: TextButton.styleFrom(
             backgroundColor: color,
           ),
+          onPressed: onPressed,
           child: Text(
             text,
-            style: TextStyle(
+            textAlign: TextAlign.center,
+            style: const TextStyle(
               fontSize: 20,
               color: Colors.white,
-              fontFamily: 'M PLUS Code Latin',
+              fontFamily: 'Neohellenic',
             ),
           ),
-          onPressed: onPressed,
         ),
       ),
     );

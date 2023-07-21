@@ -35,7 +35,7 @@ class QGovState extends State<QGov> {
   int correctlyAnswered = 0;
   List<VoidCallback> buttonFunctions = [];
 
-  QuizzerPageState() {
+  QGovState() {
     initialize();
   }
 

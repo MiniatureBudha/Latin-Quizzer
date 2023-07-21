@@ -35,7 +35,7 @@ class QNumeralsState extends State<QNumerals> {
   int correctlyAnswered = 0;
   List<VoidCallback> buttonFunctions = [];
 
-  QuizzerPageState() {
+  QNumeralsState() {
     initialize();
   }
 

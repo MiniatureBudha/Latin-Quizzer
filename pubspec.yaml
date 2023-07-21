@@ -82,5 +82,9 @@ flutter:
     - family: M PLUS Code Latin
       fonts:
         - asset: fonts/MPLUSCodeLatin-VariableFont_wdth,wght.ttf
+
+    - family: Neohellenic
+      fonts:
+        - asset: fonts/GFSNeohellenic-Regular.ttf
   assets:
     - assets/

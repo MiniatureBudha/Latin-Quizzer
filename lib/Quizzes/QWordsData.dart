@@ -1,17 +1,19 @@
 import 'package:flutter_app/Systems/question.dart';
 import 'dart:math';
 
-class QLangData {
+class QWordsData {
   int _questionNumber = 0;
   final List<Question> _questionBank = [
-    Question("What percentage of multi-syllable words in English are derived from Latin?", "80-90%", "20-30%", "40-50%", "60-70%", "50% of all English words and 80-90% of all multi-syllable words are derived from Latin."),
-    Question("What percentage of vocabulary in the 5 Romance languages come from Latin (French, Spanish, Latin, Portuguese, Romanian)?", "90%", "30%", "50%", "70%", "Romance languages evolved from Latin; 90% of their vocabulary stems from Latin."),
-    Question("Where do we see Roman numerals today?", "All of the above", "Books", "Clocks", "Plays", "We see Roman numerals on clocks, as book chapters, as acts of a play, and in the Olympics and Super Bowl titles."),
+    Question("Select the Latin words that mean: Created when special as needed", "ad hoc", "impromptu", "provisional", "special", "ad (to/for) + hoc (this) = for this situation"),
+    Question("Select the Latin words that mean: Seize the day", "carpe diem", "celebrate", "enjoy", "proclaim", "carpe (pluck) + diem (day) = pluck the day"),
+    Question("Select the Latin words that mean: And other similar things", "et cetera", "moreover", "furthermore", "including", "et (and) + cetera (the rest) = and the rest"),
+    Question("Select the Latin words that mean: An allowance given each day", "per diem", "money", "quota", "aid", "per (through/during) + diem (day) = through the day"),
+    Question("Select the Latin words that mean: A person's second or alternative personality", "alter ego", "doppelganger", "evil twin", "nemesis", "alter (the other) + ego (I) = the other I"),
   ];
   List<Question> _originalBank =
   []; //preserves original questions so that even after another round with less questions is started, random answer choices still draw from original bank (so that there's no repeats when there's less than 4 questions)
 
-  QLangData() {
+  QWordsData() {
     _originalBank = List.from(_questionBank);
   }
 

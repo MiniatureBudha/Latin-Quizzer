@@ -35,7 +35,7 @@ class QLawState extends State<QLaw> {
   int correctlyAnswered = 0;
   List<VoidCallback> buttonFunctions = [];
 
-  QuizzerPageState() {
+  QLawState() {
     initialize();
   }
 

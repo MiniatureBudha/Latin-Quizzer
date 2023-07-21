@@ -1,17 +1,18 @@
 import 'package:flutter_app/Systems/question.dart';
 import 'dart:math';
 
-class QLangData {
+class QGovData {
   int _questionNumber = 0;
   final List<Question> _questionBank = [
-    Question("What percentage of multi-syllable words in English are derived from Latin?", "80-90%", "20-30%", "40-50%", "60-70%", "50% of all English words and 80-90% of all multi-syllable words are derived from Latin."),
-    Question("What percentage of vocabulary in the 5 Romance languages come from Latin (French, Spanish, Latin, Portuguese, Romanian)?", "90%", "30%", "50%", "70%", "Romance languages evolved from Latin; 90% of their vocabulary stems from Latin."),
-    Question("Where do we see Roman numerals today?", "All of the above", "Books", "Clocks", "Plays", "We see Roman numerals on clocks, as book chapters, as acts of a play, and in the Olympics and Super Bowl titles."),
+    Question("The U.S. Constitution contains approximately 4,500 words. Other than English, what one other language is included?", "Latin", "Greek", "French", "Italian", "There are three Latin phrases used in the U.S. Constitution, including pro tempore, ex post facto, and habeas corpus."),
+    Question("America’s Founding Fathers wanted to create a republic and modeled what aspects of America’s government system after the Roman Republic?", "All of the above", "Separation of power", "The U.S. Senate", "Elections", "Inspired by the Roman Republic and its ability to preserve liberty for hundreds of years, the Founding Fathers used history as a guide for creating the U.S. Constitution."),
+    Question("Which Latin word was a included in the Roman constitution before the U.S. Constitution?", "All of the above", "Capitol", "Committee", "Senate", "America’s Founding Fathers were well-versed in the Roman constitution and borrowed many Latin words and ideas when creating the U.S. Constitution."),
+    Question("FINISH", "Virtue", "Goodness", "Righteousness", "Morality", "FINISH"),
   ];
   List<Question> _originalBank =
   []; //preserves original questions so that even after another round with less questions is started, random answer choices still draw from original bank (so that there's no repeats when there's less than 4 questions)
 
-  QLangData() {
+  QGovData() {
     _originalBank = List.from(_questionBank);
   }
 

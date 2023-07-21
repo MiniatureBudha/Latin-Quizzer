@@ -15,15 +15,16 @@ class StandardButton extends StatelessWidget {
         style: TextButton.styleFrom(
           backgroundColor: ColorConstants.buttonColor,
         ),
+        onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(
+          textAlign: TextAlign.center,
+          style: const TextStyle(
             fontSize: 20,
             color: Colors.white,
-            fontFamily: 'M PLUS Code Latin',
+            fontFamily: 'Neohellenic',
           ),
         ),
-        onPressed: onPressed,
       ),
     );
   }

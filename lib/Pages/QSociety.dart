@@ -35,7 +35,7 @@ class QSocietyState extends State<QSociety> {
   int correctlyAnswered = 0;
   List<VoidCallback> buttonFunctions = [];
 
-  QuizzerPageState() {
+  QSocietyState() {
     initialize();
   }
 

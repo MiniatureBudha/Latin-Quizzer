@@ -1,17 +1,19 @@
 import 'package:flutter_app/Systems/question.dart';
 import 'dart:math';
 
-class QLangData {
+class QPhrasesData {
   int _questionNumber = 0;
   final List<Question> _questionBank = [
-    Question("What percentage of multi-syllable words in English are derived from Latin?", "80-90%", "20-30%", "40-50%", "60-70%", "50% of all English words and 80-90% of all multi-syllable words are derived from Latin."),
-    Question("What percentage of vocabulary in the 5 Romance languages come from Latin (French, Spanish, Latin, Portuguese, Romanian)?", "90%", "30%", "50%", "70%", "Romance languages evolved from Latin; 90% of their vocabulary stems from Latin."),
-    Question("Where do we see Roman numerals today?", "All of the above", "Books", "Clocks", "Plays", "We see Roman numerals on clocks, as book chapters, as acts of a play, and in the Olympics and Super Bowl titles."),
+    Question("Veni, vidi, veci", "I came, I saw, I conquered", "I proclaim victory", "I want you", "Fight, win, prevail", "Attributed to Julius Caesar in a message he sent to the Roman Senate after a swift victory."),
+    Question("Carpe diem", "Seize the day", "Seize the money", "Seize the victory", "Seize the wine", "A very popular Latin phrase used in modern times, although “carpe vinum” does mean seize the wine."),
+    Question("Alea iacta est", "The die has been cast", "The moment of truth", "When push comes to shove", "What's done is done", "Said by Julius Caesar upon beginning a long civil war to indicate that there was no turning back."),
+    Question("In vino veritas", "In wine, there is truth", "Love, like wine, gets better with time", "When there is no wine, there is no love", "Love the wine you’re with", "Often followed by “In aqua sanitas,” or in water there is health, this phrase refers to revealing your secrets if you drink too much wine."),
+    Question("Et tu, Brute?", "And you, Brutus?", "Eggs for you, Brutus?", "What do you think, Brutus?", "How are you, Brutus?", "This phrase is used to jokingly call out a friend’s change of heart, quoted from Shakespeare‘s play “Julius Caesar” where Caesar is betrayed by his friend, Brutus."),
   ];
   List<Question> _originalBank =
   []; //preserves original questions so that even after another round with less questions is started, random answer choices still draw from original bank (so that there's no repeats when there's less than 4 questions)
 
-  QLangData() {
+  QPhrasesData() {
     _originalBank = List.from(_questionBank);
   }
 

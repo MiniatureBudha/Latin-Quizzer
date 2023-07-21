@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
-import 'package:flutter_app/Systems/Quizzer.dart';
 import 'package:flutter_app/Systems/question.dart';
 import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
+import '../Quizzes/QStudyLatin.dart';
+import '../Systems/TFQuestion.dart';
 import 'HomePage.dart';
 
 class LatinQuiz extends StatefulWidget {
@@ -16,14 +17,14 @@ class LatinQuiz extends StatefulWidget {
 }
 
 class LatinQuizState extends State<LatinQuiz> {
-  Quizzer q = Quizzer();
+  QStudyLatin q = QStudyLatin();
   List<String> answerChoicesList = [
     "",
     "",
     "",
     ""
   ]; //saves choices when answerChoices() is called
-  List<Question> wrongQuestions = []; //could be both vocab + other questions
+  List<TFQuestion> wrongQuestions = []; //could be both vocab + other questions
   List<Color> answerChoiceColors = [
     ColorConstants.buttonColor,
     ColorConstants.buttonColor,
@@ -74,7 +75,8 @@ class LatinQuizState extends State<LatinQuiz> {
                       setState(() {
                         initialize();
                       });
-                    } else {
+                    }
+                    else {
                       q.newCycle(wrongQuestions);
                       progressPercent = 0;
                       correctlyAnswered = 0;

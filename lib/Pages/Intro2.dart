@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 
 import '../Components/StandardButton.dart';
-import 'Intro2.dart';
+import 'Intro3.dart';
 
-class Intro1 extends StatefulWidget {
-  const Intro1({super.key});
+class Intro2 extends StatefulWidget {
+  const Intro2({super.key});
 
   @override
-  Intro1State createState() => Intro1State();
+  Intro2State createState() => Intro2State();
 }
 
-class Intro1State extends State<Intro1> {
+class Intro2State extends State<Intro2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,7 @@ class Intro1State extends State<Intro1> {
                 child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'Why study Latin? Isn’t it a dead language? While the language of Latin is no longer spoken by anyone as their native language, it is still very much alive and embedded in the world around us. The language of Latin never died; it just evolved. It evolved in language and in culture.',
+                    hintText: 'Studying Latin includes studying the Roman Empire, often considered one of the greatest and most influential civilizations in world history. The Western World, including North American, Europe, and Oceania, as well as the cultural, political, and economic characteristics associated with those worlds, was born on the back of Latin and Roman culture.',
                   ),
                 ),
               ),
@@ -46,7 +46,7 @@ class Intro1State extends State<Intro1> {
                   padding: const EdgeInsets.all(10.0),
                   child: StandardButton("Next", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return const Intro2(); //Make text pages later
+                      return const Intro3(); //Make text pages later
                     }));
                   }),
                 ),

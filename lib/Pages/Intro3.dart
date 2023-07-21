@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 
 import '../Components/StandardButton.dart';
-import 'Intro2.dart';
+import 'package:flutter_app/main.dart';
 
-class Intro1 extends StatefulWidget {
-  const Intro1({super.key});
+class Intro3 extends StatefulWidget {
+  const Intro3({super.key});
 
   @override
-  Intro1State createState() => Intro1State();
+  Intro3State createState() => Intro3State();
 }
 
-class Intro1State extends State<Intro1> {
+class Intro3State extends State<Intro3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,7 @@ class Intro1State extends State<Intro1> {
                 child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'Why study Latin? Isn’t it a dead language? While the language of Latin is no longer spoken by anyone as their native language, it is still very much alive and embedded in the world around us. The language of Latin never died; it just evolved. It evolved in language and in culture.',
+                    hintText: 'Studying Latin is a journey. In doing so, we are living in the past, the present, and the future. It allows us to encounter a world that is so like, and so unlike, our very own. Please use this app to discover, contemplate and admire all of the ways in which we encounter Latin every day.',
                   ),
                 ),
               ),
@@ -45,9 +45,7 @@ class Intro1State extends State<Intro1> {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: StandardButton("Next", () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return const Intro2(); //Make text pages later
-                    }));
+                    Navigator.popUntil(context, ModalRoute.withName('/'));
                   }),
                 ),
               ),

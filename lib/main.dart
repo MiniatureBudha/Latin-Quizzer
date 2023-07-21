@@ -38,10 +38,10 @@ class HomePage extends StatelessWidget {
           'Home',
           style: TextStyle(
             color: Colors.red,
-            fontFamily: 'M PLUS Code Latin',
+            fontFamily: 'Neohellenic',
           ),
         ),
-        backgroundColor: Colors.yellow,
+        backgroundColor: ColorConstants.buttonColor
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-               child: const Image(image: ResizeImage(AssetImage('assets/Logo.png'), width: 220, height: 220)),
+               child: const Image(image: ResizeImage(AssetImage('assets/Logo2.png'), width: 200, height: 200)),
             ),
           ), //says Latin Learner
           Center(
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: StandardButton("Introduction to Latin", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Intro1(); //Make text pages later
+                  return Intro1();
                 }));
               }),
             ),
@@ -65,8 +65,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(10.0),
-              child: StandardButton("Ancient Rome in our Modern World", () {
-                Colors.yellow;
+              child: StandardButton("Ancient Rome in Our Modern World", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return RomeQuizPage();
                 }));
@@ -77,7 +76,6 @@ class HomePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: StandardButton("Latin Snippets", () {
-                Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return SnippetsQuizPage();
                 }));
@@ -88,7 +86,6 @@ class HomePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: StandardButton("Why Study Latin", () {
-                Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return LatinQuiz();
                 }));

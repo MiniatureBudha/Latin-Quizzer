@@ -23,16 +23,23 @@ class RomeQuizPage extends StatelessWidget {
         backgroundColor: ColorConstants.whiteBackround,
         appBar: AppBar(
           title: const Text(
-            'Ancient Rome in our Modern World',
+            'Ancient Rome in Our Modern World',
             style: TextStyle(
               color: Colors.red,
               fontFamily: 'M PLUS Code Latin',
             ),
           ),
-          backgroundColor: ColorConstants.whiteBackround,
+          backgroundColor: ColorConstants.buttonColor,
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <
             Widget>[
+              Center(
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: ColorConstants.whiteBackround,
+                ),
+              ),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),

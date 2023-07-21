@@ -26,10 +26,17 @@ class SnippetsQuizPage extends StatelessWidget {
               fontFamily: 'M PLUS Code Latin',
             ),
           ),
-          backgroundColor: ColorConstants.whiteBackround,
+          backgroundColor: ColorConstants.buttonColor,
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <
             Widget>[
+              Center(
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: ColorConstants.whiteBackround,
+                ),
+              ),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
