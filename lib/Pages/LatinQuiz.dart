@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
-import 'package:flutter_app/Systems/question.dart';
 import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
 import '../Quizzes/QStudyLatin.dart';
 import '../Systems/TFQuestion.dart';
-import 'HomePage.dart';
 
 class LatinQuiz extends StatefulWidget {
   const LatinQuiz({super.key});
@@ -20,23 +18,20 @@ class LatinQuizState extends State<LatinQuiz> {
   QStudyLatin q = QStudyLatin();
   List<String> answerChoicesList = [
     "",
-    "",
-    "",
     ""
   ]; //saves choices when answerChoices() is called
   List<TFQuestion> wrongQuestions = []; //could be both vocab + other questions
   List<Color> answerChoiceColors = [
     ColorConstants.buttonColor,
     ColorConstants.buttonColor,
-    ColorConstants.buttonColor,
-    ColorConstants.buttonColor
   ];
   int correctChoiceIndex = -1;
+  int nQuest = 1;
   double progressPercent = 0;
   int correctlyAnswered = 0;
   List<VoidCallback> buttonFunctions = [];
 
-  QuizzerPageState() {
+  LatinQuizState() {
     initialize();
   }
 
@@ -49,26 +44,37 @@ class LatinQuizState extends State<LatinQuiz> {
             return AlertDialog(
               title: const Text(
                 'COMPLETE',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.white,
-                  fontFamily: 'M PLUS Code Latin',
+                  color: Colors.black,
+                  fontFamily: 'Neohellenic',
                 ),
               ),
-              content: Text(
-                '$correctlyAnswered out of ${q.size()} correct.',
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontFamily: 'M PLUS Code Latin',
-                ),
+              content: Padding(
+                  padding:  const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        '$correctlyAnswered out of ${q.size()} correct.',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontFamily: 'Neohellenic',
+                        ),
+                      ),
+                      goodImage(),
+                    ],
+                  )
               ),
-              backgroundColor: ColorConstants.blueBackground,
+              backgroundColor: Colors.white,
+              actionsAlignment: MainAxisAlignment.center,
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
                     if (correctlyAnswered == q.size()) {
                       q.reset();
+                      nQuest = 1;
                       progressPercent = 0;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
@@ -79,6 +85,7 @@ class LatinQuizState extends State<LatinQuiz> {
                     else {
                       q.newCycle(wrongQuestions);
                       progressPercent = 0;
+                      nQuest = 1;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
                       setState(() {
@@ -87,31 +94,28 @@ class LatinQuizState extends State<LatinQuiz> {
                     }
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: ColorConstants.buttonColor,
+                    backgroundColor: Colors.white,
                   ),
                   child: const Text(
                     'Take Quiz Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),
                 TextButton(
-                  onPressed: () => Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return const HomePage();
-                  })),
+                  onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: ColorConstants.buttonColor,
+                    backgroundColor: Colors.white,
                   ),
                   child: const Text(
                     'Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),
@@ -120,83 +124,65 @@ class LatinQuizState extends State<LatinQuiz> {
           });
     }
 
-    setState(() {
+    setState(() { //make top not always true
       progressPercent += (100 * (1 / q.size()));
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < 2; i++) {
         //resets answer choice colors to default
         answerChoiceColors[i] = ColorConstants.buttonColor;
       }
+      qInfo(context);
+      nQuest++;
       q.nextQuestion();
       changeAnswerChoices();
     });
+    return null;
+  }
+
+  Widget qInfo(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Popup example'),
+      content: const Column(
+        children: <Widget>[
+          Text("Hello"),
+        ],
+      ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Text('Close'),
+        ),
+      ],
+    );
   }
 
   void changeAnswerChoices() {
     //only works if there's more than 4 questions in the question bank
     answerChoicesList.clear();
 
-    List<String> choices = ["", "", "", ""];
-    List<String> wrongChoices = ["", "", ""];
+    List<String> choices = ["", ""];
+    List<String> wrongChoices = [""];
 
-    correctChoiceIndex = Random().nextInt(4);
+    correctChoiceIndex = Random().nextInt(1);
     choices[correctChoiceIndex] = q.getCorrectAnswer();
 
-    for (int i = 0; i < 3; i++) {
-      String randomAnswer = q.randomAnswer();
-
-      while (randomAnswer ==
-          q.getCorrectAnswer()) {
-        //makes sure it's not the right answer
-        randomAnswer = q.randomAnswer();
-      }
-
-      wrongChoices[i] = randomAnswer;
+    if(q.getCorrectAnswer() == "True"){
+      wrongChoices[0] = "False";
+    }
+    if(q.getCorrectAnswer() == "False"){
+      wrongChoices[0] = "True";
     }
 
-    while (wrongChoices[0] == wrongChoices[1] ||
-        wrongChoices[0] == wrongChoices[2] ||
-        wrongChoices[1] == wrongChoices[2]) {
-      if (wrongChoices[0] == wrongChoices[1]) {
-        String randomAnswer = q.randomAnswer();
-
-        while (randomAnswer == q.getCorrectAnswer()) {
-          randomAnswer = q.randomAnswer();
-        }
-
-        wrongChoices[1] = randomAnswer;
-      }
-
-      if (wrongChoices[0] == wrongChoices[2]) {
-        String randomAnswer = q.randomAnswer();
-
-        while (randomAnswer == q.getCorrectAnswer()) {
-          randomAnswer = q.randomAnswer();
-        }
-
-        wrongChoices[2] = randomAnswer;
-      }
-
-      if (wrongChoices[1] == wrongChoices[2]) {
-        String randomAnswer = q.randomAnswer();
-
-        while (randomAnswer == q.getCorrectAnswer()) {
-          randomAnswer = q.randomAnswer();
-        }
-
-        wrongChoices[2] = randomAnswer;
-      }
-    } //makes sure choices all distinct
-
     int j = 0;
-    for (int i = 0; i < 4; i++) {
-      //potential trouble spot
+    for (int i = 0; i < 2; i++) {
       if (i != correctChoiceIndex) {
         choices[i] = wrongChoices[j];
         j++;
       }
     }
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 2; i++) {
       answerChoicesList.add(choices[i]);
     }
   }
@@ -215,8 +201,22 @@ class LatinQuizState extends State<LatinQuiz> {
     if (choiceIndex != correctChoiceIndex) {
       answerChoiceColors[choiceIndex] = ColorConstants.logoRed;
       wrongQuestions.add(q.getQuestion());
-    } else
+    }
+    else {
       correctlyAnswered++;
+    }
+  }
+
+  Widget goodImage(){
+    if(correctlyAnswered/q.size() >= .8){
+      return const Image(image: AssetImage('assets/CrownPic.jpg'));
+    }
+    else{
+      return const SizedBox(
+        width: 100,
+        height: 100,
+      );
+    }
   }
 
   void questionAnimation(int choiceIndex) {
@@ -226,16 +226,16 @@ class LatinQuizState extends State<LatinQuiz> {
       check(choiceIndex);
     });
 
-    if (choiceIndex != correctChoiceIndex) time = 5;
+    if (choiceIndex != correctChoiceIndex) time = 2;
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 2; i++) {
       buttonFunctions[i] =
           () => null; //locks out buttons after user answers question
     }
 
     Timer(Duration(seconds: time), () {
       nextQuestion();
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < 2; i++) {
         buttonFunctions[i] = () => questionAnimation(i);
       }
     });
@@ -244,21 +244,21 @@ class LatinQuizState extends State<LatinQuiz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.blueBackground,
+      backgroundColor: ColorConstants.whiteBackround,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          'Quizzer',
+        title: const Text(
+          'Why Study Latin',
           style: TextStyle(
             color: Colors.white,
-            fontFamily: 'M PLUS Code Latin',
+            fontFamily: 'Neohellenic',
           ),
         ),
-        backgroundColor: ColorConstants.blueBackground,
+        backgroundColor: Colors.deepPurple,
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+          padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -271,12 +271,25 @@ class LatinQuizState extends State<LatinQuiz> {
               Expanded(
                 child: Center(
                   child: Text(
+                    '$nQuest of ${q.size()}',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
                     q.getQuestionText(),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),
@@ -293,14 +306,9 @@ class LatinQuizState extends State<LatinQuiz> {
                         ExpandableButton(
                             answerChoicesList[0],
                             buttonFunctions[0],
-                            answerChoiceColors[
-                                0]), //make function for onPressed
+                            answerChoiceColors[0]), //make function for onPressed
                         ExpandableButton(answerChoicesList[1],
                             buttonFunctions[1], answerChoiceColors[1]),
-                        ExpandableButton(answerChoicesList[2],
-                            buttonFunctions[2], answerChoiceColors[2]),
-                        ExpandableButton(answerChoicesList[3],
-                            buttonFunctions[3], answerChoiceColors[3]),
                       ],
                     ),
                   ),
@@ -311,47 +319,44 @@ class LatinQuizState extends State<LatinQuiz> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: ColorConstants.blueBackground,
+        color: Colors.deepPurple,
         child: Container(
-          padding: EdgeInsets.only(bottom: 15),
+          padding: const EdgeInsets.only(bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.blueBackground,
+                  backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
+                onPressed: null,
+                child: const Icon(
                   Icons.settings,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: null,
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.blueBackground,
+                  backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.home,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) {
-                  return HomePage();
-                })),
+                onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.blueBackground,
+                  backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
+                onPressed: null,
+                child: const Icon(
                   Icons.info,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: null,
               ),
             ],
           ),

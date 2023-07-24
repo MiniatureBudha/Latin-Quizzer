@@ -56,7 +56,7 @@ class QLitState extends State<QLit> {
                 style: TextStyle(
                   fontSize: 50,
                   color: Colors.black,
-                  fontFamily: 'M PLUS Code Latin',
+                  fontFamily: 'Neohellenic',
                 ),
               ),
               content: Padding(
@@ -68,14 +68,15 @@ class QLitState extends State<QLit> {
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.black,
-                          fontFamily: 'M PLUS Code Latin',
+                          fontFamily: 'Neohellenic',
                         ),
                       ),
                       goodImage(),
                     ],
                   )
               ),
-              backgroundColor: ColorConstants.whiteBackround,
+              backgroundColor: Colors.white,
+              actionsAlignment: MainAxisAlignment.center,
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
@@ -91,8 +92,8 @@ class QLitState extends State<QLit> {
                     }
                     else {
                       q.newCycle(wrongQuestions);
-                      nQuest = 1;
                       progressPercent = 0;
+                      nQuest = 1;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
                       setState(() {
@@ -101,28 +102,28 @@ class QLitState extends State<QLit> {
                     }
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: ColorConstants.buttonColor,
+                    backgroundColor: Colors.white,
                   ),
                   child: const Text(
                     'Take Quiz Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),
                 TextButton(
                   onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: ColorConstants.buttonColor,
+                    backgroundColor: Colors.white,
                   ),
                   child: const Text(
                     'Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),
@@ -294,10 +295,10 @@ class QLitState extends State<QLit> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Latin Language',
+          'Literature',
           style: TextStyle(
             color: Colors.white,
-            fontFamily: 'M PLUS Code Latin',
+            fontFamily: 'Neohellenic',
           ),
         ),
         backgroundColor: Colors.deepPurple,

@@ -49,28 +49,29 @@ class QFactsState extends State<QFacts> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.white,
-                  fontFamily: 'M PLUS Code Latin',
+                  color: Colors.black,
+                  fontFamily: 'Neohellenic',
                 ),
               ),
-                content: Padding(
-                padding:  const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Text(
-                '$correctlyAnswered out of ${q.size()} correct.',
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontFamily: 'M PLUS Code Latin',
-                ),
-                ),
-                goodImage(),
-              ],
-            )
-                ),
-              backgroundColor: ColorConstants.buttonColor,
-              actions: <Widget>[
+              content: Padding(
+                  padding:  const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        '$correctlyAnswered out of ${q.size()} correct.',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontFamily: 'Neohellenic',
+                        ),
+                      ),
+                      goodImage(),
+                    ],
+                  )
+              ),
+              backgroundColor: Colors.white,
+                actionsAlignment: MainAxisAlignment.center,
+                actions: <Widget>[
                 TextButton(
                   onPressed: () {
                     if (correctlyAnswered == q.size()) {
@@ -95,28 +96,28 @@ class QFactsState extends State<QFacts> {
                     }
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: ColorConstants.buttonColor,
+                    backgroundColor: Colors.white,
                   ),
                   child: const Text(
                     'Take Quiz Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),
                 TextButton(
                   onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: ColorConstants.buttonColor,
+                    backgroundColor: Colors.white,
                   ),
                   child: const Text(
                     'Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),

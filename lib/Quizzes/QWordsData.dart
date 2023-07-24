@@ -64,6 +64,8 @@ class QWordsData {
   }
 
   void reset() {
+    _questionBank.clear();
+    _questionBank.addAll(_originalBank);
     _questionNumber = 0;
   }
 
