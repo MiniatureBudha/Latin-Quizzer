@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
-import 'package:flutter_app/Systems/Quizzer.dart';
+import 'package:flutter_app/Quizzes/QLangData.dart';
+import 'package:flutter_app/Quizzes/QLitData.dart';
 import 'package:flutter_app/Systems/question.dart';
 import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
+import '../Quizzes/QLitData.dart';
+import '../Quizzes/QLitData.dart';
 import 'HomePage.dart';
 
 class QLit extends StatefulWidget {
@@ -16,7 +19,7 @@ class QLit extends StatefulWidget {
 }
 
 class QLitState extends State<QLit> {
-  Quizzer q = Quizzer();
+  QLitData q = QLitData();
   List<String> answerChoicesList = [
     "",
     "",
@@ -32,6 +35,7 @@ class QLitState extends State<QLit> {
   ];
   int correctChoiceIndex = -1;
   double progressPercent = 0;
+  int nQuest = 1;
   int correctlyAnswered = 0;
   List<VoidCallback> buttonFunctions = [];
 
@@ -48,34 +52,46 @@ class QLitState extends State<QLit> {
             return AlertDialog(
               title: const Text(
                 'COMPLETE',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.white,
+                  color: Colors.black,
                   fontFamily: 'M PLUS Code Latin',
                 ),
               ),
-              content: Text(
-                '$correctlyAnswered out of ${q.size()} correct.',
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontFamily: 'M PLUS Code Latin',
-                ),
+              content: Padding(
+                  padding:  const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        '$correctlyAnswered out of ${q.size()} correct.',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontFamily: 'M PLUS Code Latin',
+                        ),
+                      ),
+                      goodImage(),
+                    ],
+                  )
               ),
-              backgroundColor: ColorConstants.blueBackground,
+              backgroundColor: ColorConstants.whiteBackround,
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
                     if (correctlyAnswered == q.size()) {
                       q.reset();
+                      nQuest = 1;
                       progressPercent = 0;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
                       setState(() {
                         initialize();
                       });
-                    } else {
+                    }
+                    else {
                       q.newCycle(wrongQuestions);
+                      nQuest = 1;
                       progressPercent = 0;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
@@ -97,10 +113,7 @@ class QLitState extends State<QLit> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () => Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return const HomePage();
-                  })),
+                  onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
                     backgroundColor: ColorConstants.buttonColor,
                   ),
@@ -124,9 +137,20 @@ class QLitState extends State<QLit> {
         //resets answer choice colors to default
         answerChoiceColors[i] = ColorConstants.buttonColor;
       }
+      qInfo();
+      nQuest++;
       q.nextQuestion();
       changeAnswerChoices();
     });
+    return null;
+  }
+
+  AlertDialog? qInfo(){
+    return const AlertDialog(
+      content: Text(
+        'q.getQuestion().answerText',
+      ),
+    );
   }
 
   void changeAnswerChoices() {
@@ -136,19 +160,30 @@ class QLitState extends State<QLit> {
     List<String> choices = ["", "", "", ""];
     List<String> wrongChoices = ["", "", ""];
 
-    correctChoiceIndex = Random().nextInt(4);
-    choices[correctChoiceIndex] = q.getCorrectAnswer();
+    if(q.getCorrectAnswer() == "All of the above"){
+      choices[3] = q.getCorrectAnswer();
+      correctChoiceIndex = 3;
+    }
+    else{
+      correctChoiceIndex = Random().nextInt(4);
+      choices[correctChoiceIndex] = q.getCorrectAnswer();
+    }
 
     for (int i = 0; i < 3; i++) {
-      String randomAnswer = q.randomAnswer();
-
-      while (randomAnswer ==
-          q.getCorrectAnswer()) {
-        //makes sure it's not the right answer
-        randomAnswer = q.randomAnswer();
+      String wrongAns = "";
+      if(i == 0){
+        wrongAns = q.getQuestion().wrongAns1;
       }
-
-      wrongChoices[i] = randomAnswer;
+      else if(i == 1){
+        wrongAns = q.getQuestion().wrongAns2;
+      }
+      else if(i == 2){
+        wrongAns = q.getQuestion().wrongAns3;
+      }
+      while (wrongAns == q.getCorrectAnswer()) {
+        wrongAns = q.randomAnswer();
+      }
+      wrongChoices[i] = wrongAns;
     }
 
     while (wrongChoices[0] == wrongChoices[1] ||
@@ -193,7 +228,6 @@ class QLitState extends State<QLit> {
         j++;
       }
     }
-
     for (int i = 0; i < 4; i++) {
       answerChoicesList.add(choices[i]);
     }
@@ -213,8 +247,22 @@ class QLitState extends State<QLit> {
     if (choiceIndex != correctChoiceIndex) {
       answerChoiceColors[choiceIndex] = ColorConstants.logoRed;
       wrongQuestions.add(q.getQuestion());
-    } else
+    }
+    else {
       correctlyAnswered++;
+    }
+  }
+
+  Widget goodImage(){
+    if(correctlyAnswered/q.size() >= .8){
+      return const Image(image: AssetImage('assets/CrownPic.jpg'));
+    }
+    else{
+      return const SizedBox(
+        width: 100,
+        height: 100,
+      );
+    }
   }
 
   void questionAnimation(int choiceIndex) {
@@ -224,7 +272,7 @@ class QLitState extends State<QLit> {
       check(choiceIndex);
     });
 
-    if (choiceIndex != correctChoiceIndex) time = 5;
+    if (choiceIndex != correctChoiceIndex) time = 2;
 
     for (int i = 0; i < 4; i++) {
       buttonFunctions[i] =
@@ -242,23 +290,22 @@ class QLitState extends State<QLit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.blueBackground,
+      backgroundColor: ColorConstants.whiteBackround,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          'Quizzer',
+        title: const Text(
+          'Latin Language',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'M PLUS Code Latin',
           ),
         ),
-        backgroundColor: ColorConstants.blueBackground,
+        backgroundColor: Colors.deepPurple,
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               FAProgressBar(
@@ -269,11 +316,24 @@ class QLitState extends State<QLit> {
               Expanded(
                 child: Center(
                   child: Text(
+                    '$nQuest of ${q.size()}',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontFamily: 'Neohellenic',
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
                     q.getQuestionText(),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontFamily: 'M PLUS Code Latin',
                     ),
                   ),
@@ -292,7 +352,7 @@ class QLitState extends State<QLit> {
                             answerChoicesList[0],
                             buttonFunctions[0],
                             answerChoiceColors[
-                                0]), //make function for onPressed
+                            0]), //make function for onPressed
                         ExpandableButton(answerChoicesList[1],
                             buttonFunctions[1], answerChoiceColors[1]),
                         ExpandableButton(answerChoicesList[2],
@@ -309,47 +369,44 @@ class QLitState extends State<QLit> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: ColorConstants.blueBackground,
+        color: Colors.deepPurple,
         child: Container(
-          padding: EdgeInsets.only(bottom: 15),
+          padding: const EdgeInsets.only(bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.blueBackground,
+                  backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
+                onPressed: null,
+                child: const Icon(
                   Icons.settings,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: null,
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.blueBackground,
+                  backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.home,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) {
-                  return HomePage();
-                })),
+                onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.blueBackground,
+                  backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
+                onPressed: null,
+                child: const Icon(
                   Icons.info,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: null,
               ),
             ],
           ),

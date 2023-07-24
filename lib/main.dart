@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Components/StandardButton.dart';
 import 'package:flutter_app/Pages/SnippetsQuizPage.dart';
 import 'package:flutter_app/Pages/RomeQuizPage.dart';
 import 'package:flutter_app/Pages/LatinQuiz.dart';
-import 'package:flutter_app/Pages/QuizPage.dart';
-import 'dart:typed_data';
-import 'package:flutter/services.dart';
-
-
-import 'Constants/color_constants.dart';
 import 'Pages/Intro1.dart';
 
 void main() => runApp(const MyApp());
@@ -37,11 +30,11 @@ class HomePage extends StatelessWidget {
         title: const Text(
           'Home',
           style: TextStyle(
-            color: Colors.red,
+            color: Colors.white,
             fontFamily: 'Neohellenic',
           ),
         ),
-        backgroundColor: ColorConstants.buttonColor
+        backgroundColor: Colors.deepPurple,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,7 +50,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: StandardButton("Introduction to Latin", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Intro1();
+                  return const Intro1();
                 }));
               }),
             ),

@@ -6,7 +6,6 @@ import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
-import 'HomePage.dart';
 
 class QLang extends StatefulWidget {
   const QLang({super.key});
@@ -49,9 +48,10 @@ class QLangState extends State<QLang> {
             return AlertDialog(
               title: const Text(
                 'COMPLETE',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.white,
+                  color: Colors.black,
                   fontFamily: 'M PLUS Code Latin',
                 ),
               ),
@@ -63,7 +63,7 @@ class QLangState extends State<QLang> {
                         '$correctlyAnswered out of ${q.size()} correct.',
                         style: const TextStyle(
                           fontSize: 20,
-                          color: Colors.white,
+                          color: Colors.black,
                           fontFamily: 'M PLUS Code Latin',
                         ),
                       ),
@@ -77,6 +77,7 @@ class QLangState extends State<QLang> {
                   onPressed: () {
                     if (correctlyAnswered == q.size()) {
                       q.reset();
+                      nQuest = 1;
                       progressPercent = 0;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
@@ -86,6 +87,7 @@ class QLangState extends State<QLang> {
                     }
                     else {
                       q.newCycle(wrongQuestions);
+                      nQuest = 1;
                       progressPercent = 0;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
@@ -154,8 +156,14 @@ class QLangState extends State<QLang> {
     List<String> choices = ["", "", "", ""];
     List<String> wrongChoices = ["", "", ""];
 
-    correctChoiceIndex = Random().nextInt(4);
-    choices[correctChoiceIndex] = q.getCorrectAnswer();
+    if(q.getCorrectAnswer() == "All of the above"){
+      choices[3] = q.getCorrectAnswer();
+      correctChoiceIndex = 3;
+    }
+    else{
+      correctChoiceIndex = Random().nextInt(4);
+      choices[correctChoiceIndex] = q.getCorrectAnswer();
+    }
 
     for (int i = 0; i < 3; i++) {
       String wrongAns = "";
@@ -243,7 +251,7 @@ class QLangState extends State<QLang> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: AssetImage('assets/LatinTempCrown.png'));
+      return const Image(image: AssetImage('assets/CrownPic.jpg'));
     }
     else{
       return const SizedBox(
@@ -260,7 +268,7 @@ class QLangState extends State<QLang> {
       check(choiceIndex);
     });
 
-    if (choiceIndex != correctChoiceIndex) time = 5;
+    if (choiceIndex != correctChoiceIndex) time = 2;
 
     for (int i = 0; i < 4; i++) {
       buttonFunctions[i] =
@@ -288,7 +296,7 @@ class QLangState extends State<QLang> {
             fontFamily: 'M PLUS Code Latin',
           ),
         ),
-        backgroundColor: ColorConstants.buttonColor,
+        backgroundColor: Colors.deepPurple,
       ),
       body: SafeArea(
         child: Padding(
@@ -357,7 +365,7 @@ class QLangState extends State<QLang> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: ColorConstants.buttonColor,
+        color: Colors.deepPurple,
         child: Container(
           padding: const EdgeInsets.only(bottom: 20),
           child: Row(
@@ -365,7 +373,7 @@ class QLangState extends State<QLang> {
             children: <Widget>[
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.buttonColor,
+                  backgroundColor: Colors.deepPurple,
                 ),
                 onPressed: null,
                 child: const Icon(
@@ -376,7 +384,7 @@ class QLangState extends State<QLang> {
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.buttonColor,
+                  backgroundColor: Colors.deepPurple,
                 ),
                 child: const Icon(
                   Icons.home,
@@ -387,7 +395,7 @@ class QLangState extends State<QLang> {
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.buttonColor,
+                  backgroundColor: Colors.deepPurple,
                 ),
                 onPressed: null,
                 child: const Icon(

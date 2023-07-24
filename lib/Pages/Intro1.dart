@@ -27,12 +27,17 @@ class Intro1State extends State<Intro1> {
                 ),
               ),
               const Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Why study Latin? Isn’t it a dead language? While the language of Latin is no longer spoken by anyone as their native language, it is still very much alive and embedded in the world around us. The language of Latin never died; it just evolved. It evolved in language and in culture.',
-                  ),
-                ),
+                  child: Padding(padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Neohellenic',
+                      ),
+                      'Why study Latin? Isn’t it a dead language? \n \n While the language of Latin is no longer spoken by anyone as their native language, it is still very much alive and embedded in the world around us. '
+                          '\n \nThe language of Latin never died; it just evolved. It evolved in language and in culture.',
+                    ),
+                  )
               ),
               Center(
                 child: Container(

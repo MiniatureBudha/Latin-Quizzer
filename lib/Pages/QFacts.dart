@@ -46,9 +46,10 @@ class QFactsState extends State<QFacts> {
             return AlertDialog(
               title: const Text(
                 'COMPLETE',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.black,
+                  color: Colors.white,
                   fontFamily: 'M PLUS Code Latin',
                 ),
               ),
@@ -74,6 +75,7 @@ class QFactsState extends State<QFacts> {
                   onPressed: () {
                     if (correctlyAnswered == q.size()) {
                       q.reset();
+                      nQuest = 1;
                       progressPercent = 0;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
@@ -84,6 +86,7 @@ class QFactsState extends State<QFacts> {
                     else {
                       q.newCycle(wrongQuestions);
                       progressPercent = 0;
+                      nQuest = 1;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
                       setState(() {
@@ -128,7 +131,7 @@ class QFactsState extends State<QFacts> {
         //resets answer choice colors to default
         answerChoiceColors[i] = ColorConstants.buttonColor;
       }
-      qInfo();
+      qInfo(context);
       nQuest++;
       q.nextQuestion();
       changeAnswerChoices();
@@ -136,11 +139,22 @@ class QFactsState extends State<QFacts> {
     return null;
   }
 
-  AlertDialog? qInfo(){
-    return const AlertDialog(
-      content: Text(
-        'q.getQuestion().answerText',
+  Widget qInfo(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Popup example'),
+      content: const Column(
+        children: <Widget>[
+          Text("Hello"),
+        ],
       ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Text('Close'),
+        ),
+      ],
     );
   }
 
@@ -196,7 +210,7 @@ class QFactsState extends State<QFacts> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: AssetImage('assets/LatinTempCrown.png'));
+      return const Image(image: AssetImage('assets/CrownPic.jpg'));
     }
     else{
       return const SizedBox(
@@ -213,7 +227,7 @@ class QFactsState extends State<QFacts> {
       check(choiceIndex);
     });
 
-    if (choiceIndex != correctChoiceIndex) time = 5;
+    if (choiceIndex != correctChoiceIndex) time = 2;
 
     for (int i = 0; i < 2; i++) {
       buttonFunctions[i] =
@@ -241,7 +255,7 @@ class QFactsState extends State<QFacts> {
             fontFamily: 'Neohellenic',
           ),
         ),
-        backgroundColor: ColorConstants.buttonColor,
+        backgroundColor: Colors.deepPurple,
       ),
       body: SafeArea(
         child: Padding(
@@ -306,7 +320,7 @@ class QFactsState extends State<QFacts> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: ColorConstants.buttonColor,
+        color: Colors.deepPurple,
         child: Container(
           padding: const EdgeInsets.only(bottom: 20),
           child: Row(
@@ -314,7 +328,7 @@ class QFactsState extends State<QFacts> {
             children: <Widget>[
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.buttonColor,
+                  backgroundColor: Colors.deepPurple,
                 ),
                 onPressed: null,
                 child: const Icon(
@@ -325,7 +339,7 @@ class QFactsState extends State<QFacts> {
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.buttonColor,
+                  backgroundColor: Colors.deepPurple,
                 ),
                 child: const Icon(
                   Icons.home,
@@ -336,7 +350,7 @@ class QFactsState extends State<QFacts> {
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstants.buttonColor,
+                  backgroundColor: Colors.deepPurple,
                 ),
                 onPressed: null,
                 child: const Icon(

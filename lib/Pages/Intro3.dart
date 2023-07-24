@@ -27,12 +27,17 @@ class Intro3State extends State<Intro3> {
                 ),
               ),
               const Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Studying Latin is a journey. In doing so, we are living in the past, the present, and the future. It allows us to encounter a world that is so like, and so unlike, our very own. Please use this app to discover, contemplate and admire all of the ways in which we encounter Latin every day.',
+                child: Padding(padding: EdgeInsets.all(15.0),
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Neohellenic',
+                    ),
+                    'Studying Latin is a journey. In doing so, we are living in the past, the present, and the future. It allows us to encounter a world that is so like, and so unlike, our very own. \n \n'
+                        'Please use this app to discover, contemplate and admire all of the ways in which we encounter Latin every day.',
                   ),
-                ),
+                )
               ),
               Center(
                 child: Container(

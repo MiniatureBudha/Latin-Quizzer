@@ -27,12 +27,17 @@ class Intro2State extends State<Intro2> {
                 ),
               ),
               const Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Studying Latin includes studying the Roman Empire, often considered one of the greatest and most influential civilizations in world history. The Western World, including North American, Europe, and Oceania, as well as the cultural, political, and economic characteristics associated with those worlds, was born on the back of Latin and Roman culture.',
-                  ),
-                ),
+                  child: Padding(padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Neohellenic',
+                      ),
+                      'Studying Latin includes studying the Roman Empire, often considered one of the greatest and most influential civilizations in world history. '
+                          '\n \nThe Western World, including North American, Europe, and Oceania, as well as the cultural, political, and economic characteristics associated with those worlds, was born on the back of Latin and Roman culture.',
+                    ),
+                  )
               ),
               Center(
                 child: Container(

@@ -25,11 +25,11 @@ class RomeQuizPage extends StatelessWidget {
           title: const Text(
             'Ancient Rome in Our Modern World',
             style: TextStyle(
-              color: Colors.red,
+              color: Colors.white,
               fontFamily: 'M PLUS Code Latin',
             ),
           ),
-          backgroundColor: ColorConstants.buttonColor,
+          backgroundColor: Colors.deepPurple,
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <
             Widget>[

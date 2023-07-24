@@ -22,11 +22,11 @@ class SnippetsQuizPage extends StatelessWidget {
           title: const Text(
             'Latin Snippets',
             style: TextStyle(
-              color: Colors.red,
+              color: Colors.white,
               fontFamily: 'M PLUS Code Latin',
             ),
           ),
-          backgroundColor: ColorConstants.buttonColor,
+          backgroundColor: Colors.deepPurple,
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <
             Widget>[
