@@ -78,6 +78,7 @@ class QSocietyState extends State<QSociety> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
+                    /*
                     if (correctlyAnswered == q.size()) {
                       q.reset();
                       nQuest = 1;
@@ -98,6 +99,15 @@ class QSocietyState extends State<QSociety> {
                         initialize();
                       });
                     }
+                     */
+                    q.reset();
+                    nQuest = 1;
+                    progressPercent = 0;
+                    correctlyAnswered = 0;
+                    Navigator.of(context).pop();
+                    setState(() {
+                      initialize();
+                    });
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.white,

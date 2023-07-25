@@ -47,11 +47,11 @@ class QLangState extends State<QLang> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text(
-                'COMPLETE',
+                'Gratulationes!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.black,
+                  color: Colors.purple,
                   fontFamily: 'Neohellenic',
                 ),
               ),
@@ -76,6 +76,7 @@ class QLangState extends State<QLang> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
+                    /*
                     if (correctlyAnswered == q.size()) {
                       q.reset();
                       nQuest = 1;
@@ -96,15 +97,24 @@ class QLangState extends State<QLang> {
                         initialize();
                       });
                     }
+                     */
+                    q.reset();
+                    nQuest = 1;
+                    progressPercent = 0;
+                    correctlyAnswered = 0;
+                    Navigator.of(context).pop();
+                    setState(() {
+                      initialize();
+                    });
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Take Quiz Again',
+                    'Iterum/Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -112,13 +122,13 @@ class QLangState extends State<QLang> {
                 TextButton(
                   onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Home',
+                    'Domum/Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -144,6 +154,9 @@ class QLangState extends State<QLang> {
 
   AlertDialog? qInfo(){
     return const AlertDialog(
+      title: Text(
+        'Information About Quesion'
+      ),
       content: Text(
         'q.getQuestion().answerText',
       ),

@@ -76,6 +76,7 @@ class QNumeralsState extends State<QNumerals> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
+                    /*
                     if (correctlyAnswered == q.size()) {
                       q.reset();
                       nQuest = 1;
@@ -96,6 +97,15 @@ class QNumeralsState extends State<QNumerals> {
                         initialize();
                       });
                     }
+                     */
+                    q.reset();
+                    nQuest = 1;
+                    progressPercent = 0;
+                    correctlyAnswered = 0;
+                    Navigator.of(context).pop();
+                    setState(() {
+                      initialize();
+                    });
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.white,

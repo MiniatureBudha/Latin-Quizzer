@@ -77,6 +77,7 @@ class QWordsState extends State<QWords> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
+                    /*
                     if (correctlyAnswered == q.size()) {
                       q.reset();
                       nQuest = 1;
@@ -89,14 +90,23 @@ class QWordsState extends State<QWords> {
                     }
                     else {
                       q.newCycle(wrongQuestions);
-                      nQuest = 1;
                       progressPercent = 0;
+                      nQuest = 1;
                       correctlyAnswered = 0;
                       Navigator.of(context).pop();
                       setState(() {
                         initialize();
                       });
                     }
+                     */
+                    q.reset();
+                    nQuest = 1;
+                    progressPercent = 0;
+                    correctlyAnswered = 0;
+                    Navigator.of(context).pop();
+                    setState(() {
+                      initialize();
+                    });
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: ColorConstants.buttonColor,

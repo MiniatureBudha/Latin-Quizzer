@@ -79,6 +79,7 @@ class QLawState extends State<QLaw> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
+                    /*
                     if (correctlyAnswered == q.size()) {
                       q.reset();
                       nQuest = 1;
@@ -99,6 +100,15 @@ class QLawState extends State<QLaw> {
                         initialize();
                       });
                     }
+                     */
+                    q.reset();
+                    nQuest = 1;
+                    progressPercent = 0;
+                    correctlyAnswered = 0;
+                    Navigator.of(context).pop();
+                    setState(() {
+                      initialize();
+                    });
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.white,
