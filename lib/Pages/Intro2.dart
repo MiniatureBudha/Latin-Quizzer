@@ -16,6 +16,17 @@ class Intro2State extends State<Intro2> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ColorConstants.whiteBackround,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text(
+            'Introduction',
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Neohellenic',
+            ),
+          ),
+          backgroundColor: Colors.deepPurple,
+        ),
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[

@@ -5,8 +5,11 @@ import 'package:flutter_app/Pages/SnippetsQuizPage.dart';
 import 'package:flutter_app/Pages/RomeQuizPage.dart';
 import 'package:flutter_app/Pages/LatinQuiz.dart';
 import 'Pages/Intro1.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(const MyApp());
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,8 +24,11 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+    final player = AudioPlayer();
+    player.play(AssetSource("CoverMusic.wav"));
     return Scaffold(
       backgroundColor: ColorConstants.whiteBackround,
       appBar: AppBar(

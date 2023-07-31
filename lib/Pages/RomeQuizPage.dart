@@ -26,7 +26,7 @@ class RomeQuizPage extends StatelessWidget {
             'Ancient Rome in Our Modern World',
             style: TextStyle(
               color: Colors.white,
-              fontFamily: 'M PLUS Code Latin',
+              fontFamily: 'Neohellenic',
             ),
           ),
           backgroundColor: Colors.deepPurple,

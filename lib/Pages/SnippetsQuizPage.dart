@@ -23,7 +23,8 @@ class SnippetsQuizPage extends StatelessWidget {
             'Latin Snippets',
             style: TextStyle(
               color: Colors.white,
-              fontFamily: 'M PLUS Code Latin',
+              fontFamily: 'Neohellenic',
+              fontSize: 20,
             ),
           ),
           backgroundColor: Colors.deepPurple,
