@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Pages/NovellaPage.dart';
 
 import '../Components/StandardButton.dart';
 import '../Constants/color_constants.dart';
@@ -7,7 +6,6 @@ import 'ChatBotPage.dart';
 import 'QWords.dart';
 import 'QNumerals.dart';
 import 'QPhrases.dart';
-import 'ChatBotPage.dart';
 import 'QFacts.dart';
 
 
@@ -43,7 +41,7 @@ class SnippetsQuizPage extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: StandardButton("Common Words", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return QWords();
+                      return const QWords();
                     }));
                   }),
                 ),
@@ -53,7 +51,7 @@ class SnippetsQuizPage extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: StandardButton("Cool Phrases", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return QPhrases();
+                      return const QPhrases();
                     }));
                   }),
                 ),
@@ -63,7 +61,7 @@ class SnippetsQuizPage extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: StandardButton("Roman Numerals", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return QNumerals();
+                      return const QNumerals();
                     }));
                   }),
                 ),
@@ -74,7 +72,7 @@ class SnippetsQuizPage extends StatelessWidget {
                   child: StandardButton("Fun Facts", () {
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) {
-                          return QFacts();
+                          return const QFacts();
                         }));
                   }),
                 ),
@@ -84,7 +82,7 @@ class SnippetsQuizPage extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: StandardButton("Latin AI Chatbot", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return ChatBotPage();
+                      return const ChatBotPage();
                     }));
                   }),
                 ),

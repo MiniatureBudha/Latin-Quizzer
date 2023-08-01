@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Pages/NovellaPage.dart';
 
 import '../Components/StandardButton.dart';
 import '../Constants/color_constants.dart';
-import 'ChatBotPage.dart';
-import 'MinigamePage.dart';
-import 'QuizzerPage.dart';
-import 'NovellaPage2.dart';
 import 'QSociety.dart';
 import 'QGov.dart';
 import 'QLang.dart';
@@ -43,9 +38,9 @@ class RomeQuizPage extends StatelessWidget {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: StandardButton("Language", () {
+                  child: StandardButton("Latin Language", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return QLang();
+                      return const QLang();
                     }));
                   }),
                 ),
@@ -55,7 +50,7 @@ class RomeQuizPage extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: StandardButton("Law, Medicine & Science", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return QLaw();
+                      return const QLaw();
                     }));
                   }),
                 ),
@@ -65,7 +60,7 @@ class RomeQuizPage extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: StandardButton("Literature, Art & Architecture", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return QLit();
+                      return const QLit();
                     }));
                   }),
                 ),
@@ -76,7 +71,7 @@ class RomeQuizPage extends StatelessWidget {
                   child: StandardButton("Infrastructure & Society", () {
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) {
-                          return QSociety();
+                          return const QSociety();
                         }));
                   }),
                 ),
@@ -86,7 +81,7 @@ class RomeQuizPage extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: StandardButton("Government", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return QGov();
+                      return const QGov();
                     }));
                   }),
                 ),

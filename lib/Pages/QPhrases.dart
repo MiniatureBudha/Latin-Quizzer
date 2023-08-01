@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Quizzes/QPhrasesData.dart';
-import 'package:flutter_app/Systems/Quizzer.dart';
 import 'package:flutter_app/Systems/question.dart';
 import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
-import 'HomePage.dart';
 
 class QPhrases extends StatefulWidget {
   const QPhrases({super.key});
@@ -49,11 +47,11 @@ class QPhrasesState extends State<QPhrases> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text(
-                'COMPLETE',
+                'Gratulationes!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.black,
+                  color: Colors.purple,
                   fontFamily: 'Neohellenic',
                 ),
               ),
@@ -110,13 +108,13 @@ class QPhrasesState extends State<QPhrases> {
                     });
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Take Quiz Again',
+                    'Iterum/Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -124,13 +122,13 @@ class QPhrasesState extends State<QPhrases> {
                 TextButton(
                   onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Home',
+                    'Domum/Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -139,6 +137,7 @@ class QPhrasesState extends State<QPhrases> {
             );
           });
     }
+
 
     setState(() {
       progressPercent += (100 * (1 / q.size()));
@@ -303,7 +302,7 @@ class QPhrasesState extends State<QPhrases> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Phrases',
+          'Cool Phrases',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Neohellenic',

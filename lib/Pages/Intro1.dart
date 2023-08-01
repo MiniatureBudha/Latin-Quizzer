@@ -19,7 +19,7 @@ class Intro1State extends State<Intro1> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text(
-            'Introduction',
+            'Introduction to Latin',
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'Neohellenic',

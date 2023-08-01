@@ -43,11 +43,11 @@ class LatinQuizState extends State<LatinQuiz> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text(
-                'COMPLETE',
+                'Gratulationes!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.black,
+                  color: Colors.purple,
                   fontFamily: 'Neohellenic',
                 ),
               ),
@@ -104,13 +104,13 @@ class LatinQuizState extends State<LatinQuiz> {
                     });
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Take Quiz Again',
+                    'Iterum/Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -118,13 +118,13 @@ class LatinQuizState extends State<LatinQuiz> {
                 TextButton(
                   onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Home',
+                    'Domum/Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -133,6 +133,7 @@ class LatinQuizState extends State<LatinQuiz> {
             );
           });
     }
+
 
     setState(() { //make top not always true
       progressPercent += (100 * (1 / q.size()));

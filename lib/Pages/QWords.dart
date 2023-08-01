@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Quizzes/QWordsData.dart';
-import 'package:flutter_app/Systems/Quizzer.dart';
 import 'package:flutter_app/Systems/question.dart';
 import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
-import 'HomePage.dart';
 
 class QWords extends StatefulWidget {
   const QWords({super.key});
@@ -49,12 +47,12 @@ class QWordsState extends State<QWords> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text(
-                'COMPLETE',
+                'Gratulationes!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.black,
-                  fontFamily: 'M PLUS Code Latin',
+                  color: Colors.purple,
+                  fontFamily: 'Neohellenic',
                 ),
               ),
               content: Padding(
@@ -66,14 +64,15 @@ class QWordsState extends State<QWords> {
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.black,
-                          fontFamily: 'M PLUS Code Latin',
+                          fontFamily: 'Neohellenic',
                         ),
                       ),
                       goodImage(),
                     ],
                   )
               ),
-              backgroundColor: ColorConstants.whiteBackround,
+              backgroundColor: Colors.white,
+              actionsAlignment: MainAxisAlignment.center,
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
@@ -112,11 +111,11 @@ class QWordsState extends State<QWords> {
                     backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Take Quiz Again',
+                    'Iterum/Again',
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),
@@ -126,11 +125,11 @@ class QWordsState extends State<QWords> {
                     backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Home',
+                    'Domum/Home',
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
-                      fontFamily: 'M PLUS Code Latin',
+                      fontFamily: 'Neohellenic',
                     ),
                   ),
                 ),
@@ -138,6 +137,7 @@ class QWordsState extends State<QWords> {
             );
           });
     }
+
 
     setState(() {
       progressPercent += (100 * (1 / q.size()));
@@ -302,7 +302,7 @@ class QWordsState extends State<QWords> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Latin Language',
+          'Common Words',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'M PLUS Code Latin',

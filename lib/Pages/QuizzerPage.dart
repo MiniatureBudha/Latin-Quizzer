@@ -125,6 +125,7 @@ class QuizzerPageState extends State<QuizzerPage> {
       q.nextQuestion();
       changeAnswerChoices();
     });
+    return null;
   }
 
   void changeAnswerChoices() {
@@ -211,8 +212,9 @@ class QuizzerPageState extends State<QuizzerPage> {
     if (choiceIndex != correctChoiceIndex) {
       answerChoiceColors[choiceIndex] = ColorConstants.logoRed;
       wrongQuestions.add(q.getQuestion());
-    } else
+    } else {
       correctlyAnswered++;
+    }
   }
 
   void questionAnimation(int choiceIndex) {
@@ -243,7 +245,7 @@ class QuizzerPageState extends State<QuizzerPage> {
       backgroundColor: ColorConstants.blueBackground,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           'Quizzer',
           style: TextStyle(
             color: Colors.white,
@@ -254,7 +256,7 @@ class QuizzerPageState extends State<QuizzerPage> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+          padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -269,7 +271,7 @@ class QuizzerPageState extends State<QuizzerPage> {
                   child: Text(
                     q.getQuestionText(),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                       fontFamily: 'M PLUS Code Latin',
@@ -309,7 +311,7 @@ class QuizzerPageState extends State<QuizzerPage> {
       bottomNavigationBar: BottomAppBar(
         color: ColorConstants.blueBackground,
         child: Container(
-          padding: EdgeInsets.only(bottom: 15),
+          padding: const EdgeInsets.only(bottom: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -317,37 +319,37 @@ class QuizzerPageState extends State<QuizzerPage> {
                 style: TextButton.styleFrom(
                   backgroundColor: ColorConstants.blueBackground,
                 ),
-                child: Icon(
+                onPressed: null,
+                child: const Icon(
                   Icons.settings,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: null,
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
                   backgroundColor: ColorConstants.blueBackground,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.home,
                   size: 30,
                   color: Colors.white,
                 ),
                 onPressed: () => Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) {
-                  return HomePage();
+                  return const HomePage();
                 })),
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(
                   backgroundColor: ColorConstants.blueBackground,
                 ),
-                child: Icon(
+                onPressed: null,
+                child: const Icon(
                   Icons.info,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: null,
               ),
             ],
           ),

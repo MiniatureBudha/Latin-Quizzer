@@ -47,11 +47,11 @@ class QNumeralsState extends State<QNumerals> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text(
-                'COMPLETE',
+                'Gratulationes!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.black,
+                  color: Colors.purple,
                   fontFamily: 'Neohellenic',
                 ),
               ),
@@ -108,13 +108,13 @@ class QNumeralsState extends State<QNumerals> {
                     });
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Take Quiz Again',
+                    'Iterum/Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -122,13 +122,13 @@ class QNumeralsState extends State<QNumerals> {
                 TextButton(
                   onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Home',
+                    'Domum/Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -137,6 +137,7 @@ class QNumeralsState extends State<QNumerals> {
             );
           });
     }
+
 
     setState(() {
       progressPercent += (100 * (1 / q.size()));

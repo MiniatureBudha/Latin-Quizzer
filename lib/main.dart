@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: StandardButton("Ancient Rome in Our Modern World", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return RomeQuizPage();
+                  return const RomeQuizPage();
                 }));
               }),
             ),
@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: StandardButton("Latin Snippets", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return SnippetsQuizPage();
+                  return const SnippetsQuizPage();
                 }));
               }),
             ),
@@ -86,7 +86,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: StandardButton("Why Study Latin", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return LatinQuiz();
+                  return const LatinQuiz();
                 }));
               }),
             ),

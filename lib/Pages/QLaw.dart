@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Quizzes/QLawData.dart';
-import 'package:flutter_app/Quizzes/QLitData.dart';
-import 'package:flutter_app/Systems/Quizzer.dart';
 import 'package:flutter_app/Systems/question.dart';
 import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
-import 'HomePage.dart';
 
 class QLaw extends StatefulWidget {
   const QLaw({super.key});
@@ -50,11 +47,11 @@ class QLawState extends State<QLaw> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text(
-                'COMPLETE',
+                'Gratulationes!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.black,
+                  color: Colors.purple,
                   fontFamily: 'Neohellenic',
                 ),
               ),
@@ -111,13 +108,13 @@ class QLawState extends State<QLaw> {
                     });
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Take Quiz Again',
+                    'Iterum/Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -125,13 +122,13 @@ class QLawState extends State<QLaw> {
                 TextButton(
                   onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Home',
+                    'Domum/Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -140,6 +137,7 @@ class QLawState extends State<QLaw> {
             );
           });
     }
+
 
     setState(() {
       progressPercent += (100 * (1 / q.size()));
@@ -304,7 +302,7 @@ class QLawState extends State<QLaw> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Law',
+          'Law, Medicine & Science',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Neohellenic',

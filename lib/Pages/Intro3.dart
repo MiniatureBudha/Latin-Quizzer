@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 
 import '../Components/StandardButton.dart';
-import 'package:flutter_app/main.dart';
 
 class Intro3 extends StatefulWidget {
   const Intro3({super.key});
@@ -19,7 +18,7 @@ class Intro3State extends State<Intro3> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text(
-            'Introduction',
+            'Introduction to Latin',
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'Neohellenic',

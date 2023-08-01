@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Quizzes/QFactsData.dart';
-import 'package:flutter_app/Systems/question.dart';
 import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
 import '../Systems/TFQuestion.dart';
-import 'HomePage.dart';
 
 class QFacts extends StatefulWidget {
   const QFacts({super.key});
@@ -45,11 +43,11 @@ class QFactsState extends State<QFacts> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text(
-                'COMPLETE',
+                'Gratulationes!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.black,
+                  color: Colors.purple,
                   fontFamily: 'Neohellenic',
                 ),
               ),
@@ -70,8 +68,8 @@ class QFactsState extends State<QFacts> {
                   )
               ),
               backgroundColor: Colors.white,
-                actionsAlignment: MainAxisAlignment.center,
-                actions: <Widget>[
+              actionsAlignment: MainAxisAlignment.center,
+              actions: <Widget>[
                 TextButton(
                   onPressed: () {
                     /*
@@ -106,13 +104,13 @@ class QFactsState extends State<QFacts> {
                     });
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Take Quiz Again',
+                    'Iterum/Again',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -120,13 +118,13 @@ class QFactsState extends State<QFacts> {
                 TextButton(
                   onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Home',
+                    'Domum/Home',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: 'Neohellenic',
                     ),
                   ),
@@ -135,6 +133,7 @@ class QFactsState extends State<QFacts> {
             );
           });
     }
+
 
     setState(() { //make top not always true
       progressPercent += (100 * (1 / q.size()));
@@ -260,7 +259,7 @@ class QFactsState extends State<QFacts> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Facts',
+          'Fun Facts',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Neohellenic',

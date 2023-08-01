@@ -4,7 +4,6 @@ import 'package:flutter_app/Pages/NovellaPage.dart';
 import '../Components/StandardButton.dart';
 import '../Constants/color_constants.dart';
 import 'ChatBotPage.dart';
-import 'MinigamePage.dart';
 import 'QuizzerPage.dart';
 import 'NovellaPage2.dart';
 import 'NovellaPage3.dart';
@@ -45,7 +44,7 @@ class QuizPage extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: StandardButton("Reading Comprehension 1", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return NovellaPage();
+                  return const NovellaPage();
                 }));
               }),
             ),
@@ -55,7 +54,7 @@ class QuizPage extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: StandardButton("Reading Comprehension 2", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return NovellaPage2();
+                  return const NovellaPage2();
                 }));
               }),
             ),
@@ -65,7 +64,7 @@ class QuizPage extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: StandardButton("Reading Comprehension 3", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return NovellaPage3();
+                  return const NovellaPage3();
                 }));
               }),
             ),
@@ -86,7 +85,7 @@ class QuizPage extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: StandardButton("Latin Chat AI", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ChatBotPage();
+                  return const ChatBotPage();
                 }));
               }),
             ),

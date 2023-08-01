@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'TFQuestion.dart';
-import 'question.dart';
 
 class Word extends TFQuestion {
   Word(String questionText, String answerText, String infoText)

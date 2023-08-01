@@ -1,11 +1,10 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'reusable_widgets.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 
 class DecorationProperties {
   static BoxDecoration backgroundDecoration =
-  BoxDecoration(color: Color(0xff14154F));
+  const BoxDecoration(color: Color(0xff14154F));
 
   static BoxDecoration quizBackgroundDecoration = BoxDecoration(
       image: DecorationImage(

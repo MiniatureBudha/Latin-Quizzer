@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Components/StandardButton.dart';
-import 'package:flutter_app/Pages/SettingsPage.dart';
 import 'package:flutter_app/Pages/SnippetsQuizPage.dart';
-import 'package:flutter_app/Pages/StatsPage.dart';
 import 'QuizPage.dart';
 import 'RomeQuizPage.dart';
 import 'LatinQuiz.dart';
@@ -50,7 +48,7 @@ class HomePage extends StatelessWidget {
               child: StandardButton("Introduction to Latin", () {
                 Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return QuizPage(); //Make text pages later
+                  return const QuizPage(); //Make text pages later
                 }));
               }),
             ),
@@ -61,7 +59,7 @@ class HomePage extends StatelessWidget {
               child: StandardButton("Ancient Rome in our Modern World", () {
                 Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return RomeQuizPage();
+                  return const RomeQuizPage();
                 }));
               }),
             ),
@@ -72,7 +70,7 @@ class HomePage extends StatelessWidget {
               child: StandardButton("Latin Snippets", () {
                 Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return SnippetsQuizPage();
+                  return const SnippetsQuizPage();
                 }));
               }),
             ),
@@ -83,7 +81,7 @@ class HomePage extends StatelessWidget {
               child: StandardButton("Why Study Latin", () {
                 Colors.yellow;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return LatinQuiz();
+                  return const LatinQuiz();
                 }));
               }),
             ),
