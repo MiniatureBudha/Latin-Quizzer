@@ -47,8 +47,8 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           Center(
             child: Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-               child: const Image(image: ResizeImage(AssetImage('assets/Logo2.png'), width: 200, height: 200)),
+              margin: const EdgeInsets.fromLTRB(0, 50, 0, 30),
+               child: const Image(image: ResizeImage(AssetImage('assets/Logo2.png'), width: 200, height: 180)),
             ),
           ), //says Latin Learner
           Center(

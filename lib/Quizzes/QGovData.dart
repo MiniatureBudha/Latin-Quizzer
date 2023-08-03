@@ -7,7 +7,7 @@ class QGovData {
     Question("The U.S. Constitution contains approximately 4,500 words. Other than English, what one other language is included?", "Latin", "Greek", "French", "Italian", "There are three Latin phrases used in the U.S. Constitution, including pro tempore, ex post facto, and habeas corpus."),
     Question("America’s Founding Fathers wanted to create a republic and modeled what aspects of America’s government system after the Roman Republic?", "All of the above", "Separation of power", "The U.S. Senate", "Elections", "Inspired by the Roman Republic and its ability to preserve liberty for hundreds of years, the Founding Fathers used history as a guide for creating the U.S. Constitution."),
     Question("Which Latin word was a included in the Roman constitution before the U.S. Constitution?", "All of the above", "Capitol", "Committee", "Senate", "America’s Founding Fathers were well-versed in the Roman constitution and borrowed many Latin words and ideas when creating the U.S. Constitution."),
-    Question("FINISH", "Virtue", "Goodness", "Righteousness", "Morality", "FINISH"),
+    Question("The Founding Fathers harmoniously believed in putting the common good before one’s self interest as a necessity for a democratic republic to be successful. Similarly, Roman politician and philosopher Cicero wrote that the... welfare of the public is the supreme law. What word did they use repeatedly to describe this trait?", "Virtue", "Goodness", "Righteousness", "Morality", "FINISH"),
   ];
   List<Question> _originalBank =
   []; //preserves original questions so that even after another round with less questions is started, random answer choices still draw from original bank (so that there's no repeats when there's less than 4 questions)

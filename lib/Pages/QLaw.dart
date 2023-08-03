@@ -60,12 +60,16 @@ class QLawState extends State<QLaw> {
                   child: Column(
                     children: [
                       Text(
-                        '$correctlyAnswered out of ${q.size()} correct.',
+                        '$correctlyAnswered out of ${q.size()} correct!',
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.black,
                           fontFamily: 'Neohellenic',
                         ),
+                      ),
+                      const SizedBox(
+                        width: 100,
+                        height: 100,
                       ),
                       goodImage(),
                     ],
@@ -263,7 +267,7 @@ class QLawState extends State<QLaw> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: AssetImage('assets/CrownPic.jpg'));
+      return const Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 200, height: 180));
     }
     else{
       return const SizedBox(
@@ -312,7 +316,7 @@ class QLawState extends State<QLaw> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[

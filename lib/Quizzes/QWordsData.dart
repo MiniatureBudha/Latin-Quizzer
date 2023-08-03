@@ -4,11 +4,11 @@ import 'dart:math';
 class QWordsData {
   int _questionNumber = 0;
   final List<Question> _questionBank = [
-    Question("Select the Latin words that mean: Created when special as needed", "ad hoc", "impromptu", "provisional", "special", "ad (to/for) + hoc (this) = for this situation"),
-    Question("Select the Latin words that mean: Seize the day", "carpe diem", "celebrate", "enjoy", "proclaim", "carpe (pluck) + diem (day) = pluck the day"),
-    Question("Select the Latin words that mean: And other similar things", "et cetera", "moreover", "furthermore", "including", "et (and) + cetera (the rest) = and the rest"),
-    Question("Select the Latin words that mean: An allowance given each day", "per diem", "money", "quota", "aid", "per (through/during) + diem (day) = through the day"),
-    Question("Select the Latin words that mean: A person's second or alternative personality", "alter ego", "doppelganger", "evil twin", "nemesis", "alter (the other) + ego (I) = the other I"),
+    Question("Select the Latin words that mean: \n\n Created when special as needed", "ad hoc", "impromptu", "provisional", "special", "ad (to/for) + hoc (this) = for this situation"),
+    Question("Select the Latin words that mean: \n\n Seize the day", "carpe diem", "celebrate", "enjoy", "proclaim", "carpe (pluck) + diem (day) = pluck the day"),
+    Question("Select the Latin words that mean: \n\n And other similar things", "et cetera", "moreover", "furthermore", "including", "et (and) + cetera (the rest) = and the rest"),
+    Question("Select the Latin words that mean: \n\n An allowance given each day", "per diem", "money", "quota", "aid", "per (through/during) + diem (day) = through the day"),
+    Question("Select the Latin words that mean: \n\n A person's second or alternative personality", "alter ego", "doppelganger", "evil twin", "nemesis", "alter (the other) + ego (I) = the other I"),
   ];
   List<Question> _originalBank =
   []; //preserves original questions so that even after another round with less questions is started, random answer choices still draw from original bank (so that there's no repeats when there's less than 4 questions)

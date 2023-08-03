@@ -56,12 +56,16 @@ class LatinQuizState extends State<LatinQuiz> {
                   child: Column(
                     children: [
                       Text(
-                        '$correctlyAnswered out of ${q.size()} correct.',
+                        '$correctlyAnswered out of ${q.size()} correct!',
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.black,
                           fontFamily: 'Neohellenic',
                         ),
+                      ),
+                      const SizedBox(
+                        width: 100,
+                        height: 100,
                       ),
                       goodImage(),
                     ],
@@ -220,7 +224,7 @@ class LatinQuizState extends State<LatinQuiz> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: AssetImage('assets/CrownPic.jpg'));
+      return const Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 200, height: 180));
     }
     else{
       return const SizedBox(
