@@ -56,7 +56,7 @@ class QSocietyState extends State<QSociety> {
                 ),
               ),
               content: Padding(
-                  padding:  const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       Text(
@@ -69,8 +69,7 @@ class QSocietyState extends State<QSociety> {
                       ),
                       goodImage(),
                     ],
-                  )
-              ),
+                  )),
               backgroundColor: Colors.white,
               actionsAlignment: MainAxisAlignment.center,
               actions: <Widget>[
@@ -120,7 +119,8 @@ class QSocietyState extends State<QSociety> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
+                  onPressed: () =>
+                      Navigator.popUntil(context, ModalRoute.withName('/')),
                   style: TextButton.styleFrom(
                     backgroundColor: ColorConstants.buttonColor,
                   ),
@@ -138,14 +138,15 @@ class QSocietyState extends State<QSociety> {
           });
     }
 
-
     setState(() {
+      if (wrongQuestions.contains(q.getQuestion()))
+        qInfo();
+
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 4; i++) {
         //resets answer choice colors to default
         answerChoiceColors[i] = ColorConstants.buttonColor;
       }
-      qInfo();
       nQuest++;
       q.nextQuestion();
       changeAnswerChoices();
@@ -153,11 +154,16 @@ class QSocietyState extends State<QSociety> {
     return null;
   }
 
-  AlertDialog? qInfo(){
-    return const AlertDialog(
-      content: Text(
-        'q.getQuestion().answerText',
-      ),
+  AlertDialog? qInfo() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return AlertDialog(
+          content: Text(
+            q.getQuestion().infoText,
+          ),
+        );
+      }
     );
   }
 
@@ -168,24 +174,21 @@ class QSocietyState extends State<QSociety> {
     List<String> choices = ["", "", "", ""];
     List<String> wrongChoices = ["", "", ""];
 
-    if(q.getCorrectAnswer() == "All of the above"){
+    if (q.getCorrectAnswer() == "All of the above") {
       choices[3] = q.getCorrectAnswer();
       correctChoiceIndex = 3;
-    }
-    else{
+    } else {
       correctChoiceIndex = Random().nextInt(4);
       choices[correctChoiceIndex] = q.getCorrectAnswer();
     }
 
     for (int i = 0; i < 3; i++) {
       String wrongAns = "";
-      if(i == 0){
+      if (i == 0) {
         wrongAns = q.getQuestion().wrongAns1;
-      }
-      else if(i == 1){
+      } else if (i == 1) {
         wrongAns = q.getQuestion().wrongAns2;
-      }
-      else if(i == 2){
+      } else if (i == 2) {
         wrongAns = q.getQuestion().wrongAns3;
       }
       while (wrongAns == q.getCorrectAnswer()) {
@@ -255,17 +258,15 @@ class QSocietyState extends State<QSociety> {
     if (choiceIndex != correctChoiceIndex) {
       answerChoiceColors[choiceIndex] = ColorConstants.logoRed;
       wrongQuestions.add(q.getQuestion());
-    }
-    else {
+    } else {
       correctlyAnswered++;
     }
   }
 
-  Widget goodImage(){
-    if(correctlyAnswered/q.size() >= .8){
+  Widget goodImage() {
+    if (correctlyAnswered / q.size() >= .8) {
       return const Image(image: AssetImage('assets/CrownPic.jpg'));
-    }
-    else{
+    } else {
       return const SizedBox(
         width: 100,
         height: 100,
@@ -360,7 +361,7 @@ class QSocietyState extends State<QSociety> {
                             answerChoicesList[0],
                             buttonFunctions[0],
                             answerChoiceColors[
-                            0]), //make function for onPressed
+                                0]), //make function for onPressed
                         ExpandableButton(answerChoicesList[1],
                             buttonFunctions[1], answerChoiceColors[1]),
                         ExpandableButton(answerChoicesList[2],
@@ -403,7 +404,8 @@ class QSocietyState extends State<QSociety> {
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
+                onPressed: () =>
+                    Navigator.popUntil(context, ModalRoute.withName('/')),
               ),
               OutlinedButton(
                 style: TextButton.styleFrom(

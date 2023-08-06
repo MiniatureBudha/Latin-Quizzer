@@ -141,12 +141,14 @@ class QLitState extends State<QLit> {
 
 
     setState(() {
+      if (wrongQuestions.contains(q.getQuestion()))
+        qInfo();
+
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 4; i++) {
         //resets answer choice colors to default
         answerChoiceColors[i] = ColorConstants.buttonColor;
       }
-      qInfo();
       nQuest++;
       q.nextQuestion();
       changeAnswerChoices();
@@ -154,11 +156,16 @@ class QLitState extends State<QLit> {
     return null;
   }
 
-  AlertDialog? qInfo(){
-    return const AlertDialog(
-      content: Text(
-        'q.getQuestion().answerText',
-      ),
+  AlertDialog? qInfo() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            content: Text(
+              q.getQuestion().infoText,
+            ),
+          );
+        }
     );
   }
 

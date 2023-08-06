@@ -149,23 +149,29 @@ class LatinQuizState extends State<LatinQuiz> {
     return null;
   }
 
-  Widget qInfo(BuildContext context) {
-    return AlertDialog(
-      title: const Text('Popup example'),
-      content: const Column(
-        children: <Widget>[
-          Text("Hello"),
-        ],
-      ),
-      actions: <Widget>[
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: const Text('Close'),
-        ),
-      ],
-    );
+  AlertDialog? qInfo(BuildContext context) {
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Popup example'),
+            content: Column(
+              children: <Widget>[
+                Text("Hello"),
+              ],
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Close'),
+              ),
+            ],
+          );
+        }
+      );
   }
 
   void changeAnswerChoices() {

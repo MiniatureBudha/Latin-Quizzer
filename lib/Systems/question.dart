@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 
 class Question {
   String questionText;
@@ -7,7 +8,8 @@ class Question {
   String wrongAns3;
   String infoText;
 
-  Question(this.questionText, this.answerText, this.wrongAns1, this.wrongAns2, this.wrongAns3, this.infoText);
+  Question(this.questionText, this.answerText, this.wrongAns1, this.wrongAns2,
+      this.wrongAns3, this.infoText);
 
   bool isWord() {
     return false;

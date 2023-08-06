@@ -136,12 +136,14 @@ class QFactsState extends State<QFacts> {
 
 
     setState(() { //make top not always true
+      if (wrongQuestions.contains(q.getQuestion()))
+        qInfo();
+
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 2; i++) {
         //resets answer choice colors to default
         answerChoiceColors[i] = ColorConstants.buttonColor;
       }
-      qInfo(context);
       nQuest++;
       q.nextQuestion();
       changeAnswerChoices();
@@ -149,22 +151,16 @@ class QFactsState extends State<QFacts> {
     return null;
   }
 
-  Widget qInfo(BuildContext context) {
-    return AlertDialog(
-      title: const Text('Popup example'),
-      content: const Column(
-        children: <Widget>[
-          Text("Hello"),
-        ],
-      ),
-      actions: <Widget>[
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: const Text('Close'),
-        ),
-      ],
+  AlertDialog? qInfo() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            content: Text(
+              q.getQuestion().infoText,
+            ),
+          );
+        }
     );
   }
 
