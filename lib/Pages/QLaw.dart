@@ -76,28 +76,6 @@ class QLawState extends State<QLaw> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    /*
-                    if (correctlyAnswered == q.size()) {
-                      q.reset();
-                      nQuest = 1;
-                      progressPercent = 0;
-                      correctlyAnswered = 0;
-                      Navigator.of(context).pop();
-                      setState(() {
-                        initialize();
-                      });
-                    }
-                    else {
-                      q.newCycle(wrongQuestions);
-                      progressPercent = 0;
-                      nQuest = 1;
-                      correctlyAnswered = 0;
-                      Navigator.of(context).pop();
-                      setState(() {
-                        initialize();
-                      });
-                    }
-                     */
                     q.reset();
                     nQuest = 1;
                     progressPercent = 0;
@@ -140,8 +118,9 @@ class QLawState extends State<QLaw> {
 
 
     setState(() {
-      if (wrongQuestions.contains(q.getQuestion()))
+      if(true) {
         qInfo();
+      }
 
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 4; i++) {
@@ -160,6 +139,15 @@ class QLawState extends State<QLaw> {
         context: context,
         builder: (BuildContext context){
           return AlertDialog(
+            title: const Text(
+              'Wisdom',
+              textAlign: TextAlign.center,
+                style: TextStyle(
+                fontSize: 30,
+                color: Colors.purple,
+                fontFamily: 'Neohellenic',
+              ),
+            ),
             content: Text(
               q.getQuestion().infoText,
             ),

@@ -22,6 +22,14 @@ class QLawData {
     }
   }
 
+  void backQuestion(){
+    _questionNumber--;
+  }
+
+  void forwardQuestion(){
+    _questionNumber++;
+  }
+
   Question getQuestion() {
     return _questionBank[_questionNumber];
   }

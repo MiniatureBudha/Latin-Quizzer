@@ -58,7 +58,7 @@ class RomeQuizPage extends StatelessWidget {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: StandardButton("Literature, Art & Architecture", () {
+                  child: StandardButton("Literature & Art", () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
                       return const QLit();
                     }));
@@ -68,7 +68,7 @@ class RomeQuizPage extends StatelessWidget {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: StandardButton("Infrastructure & Society", () {
+                  child: StandardButton("Infrastructure & Architecture", () {
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) {
                           return const QSociety();

@@ -140,9 +140,6 @@ class QNumeralsState extends State<QNumerals> {
 
 
     setState(() {
-      if (wrongQuestions.contains(q.getQuestion()))
-        qInfo();
-
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 4; i++) {
         //resets answer choice colors to default

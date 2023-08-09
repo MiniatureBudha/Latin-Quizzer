@@ -136,9 +136,6 @@ class QFactsState extends State<QFacts> {
 
 
     setState(() { //make top not always true
-      if (wrongQuestions.contains(q.getQuestion()))
-        qInfo();
-
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 2; i++) {
         //resets answer choice colors to default

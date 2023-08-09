@@ -139,8 +139,9 @@ class QSocietyState extends State<QSociety> {
     }
 
     setState(() {
-      if (wrongQuestions.contains(q.getQuestion()))
+      if(true) {
         qInfo();
+      }
 
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 4; i++) {
