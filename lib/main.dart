@@ -6,14 +6,12 @@ import 'package:flutter_app/Pages/RomeQuizPage.dart';
 import 'package:flutter_app/Pages/LatinQuiz.dart';
 import 'Pages/Intro1.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter_app/Pages/SettingsPage.dart';
 
 void main() => runApp(const MyApp());
 
-
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +19,39 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  HomePageState createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  double num = 1;
+
+  final player = AudioPlayer();
+
+  void setVolume(double newVolume){
+    //player.stop();
+    player.setVolume(newVolume);
+    //player.play(AssetSource("CoverMusic.wav"));
+  }
+
+
+  callback(newValue){
+    setState(() {
+      num = newValue;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final player = AudioPlayer();
+
+    SettingsPage(callback: this.callback, volumeLevel: SettingsPageState.musicVolume);
+
     player.play(AssetSource("CoverMusic.wav"));
+    player.setVolume(num);
+
     return Scaffold(
       backgroundColor: ColorConstants.whiteBackround,
       appBar: AppBar(
@@ -48,7 +71,9 @@ class HomePage extends StatelessWidget {
           Center(
             child: Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-               child: const Image(image: ResizeImage(AssetImage('assets/Logo2.png'), width: 200, height: 200)),
+              child: const Image(
+                  image: ResizeImage(AssetImage('assets/Logo2.png'),
+                      width: 200, height: 200)),
             ),
           ), //says Latin Learner
           Center(
@@ -92,6 +117,59 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.deepPurple,
+        child: Container(
+          padding: EdgeInsets.only(bottom: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              OutlinedButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                ),
+                child: Icon(
+                  Icons.settings,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SettingsPage(callback: this.callback, volumeLevel: SettingsPageState.musicVolume);
+                      },
+                    ),
+                  ),
+                },
+              ),
+              OutlinedButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                ),
+                child: Icon(
+                  Icons.stacked_bar_chart_sharp,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                onPressed: null,
+              ),
+              OutlinedButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                ),
+                child: Icon(
+                  Icons.info,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                onPressed: null,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
