@@ -26,6 +26,10 @@ PODS:
   - Toast (4.0.0)
   - url_launcher_ios (0.0.1):
     - Flutter
+  - volume_control (0.0.1):
+    - Flutter
+  - volume_controller (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - audio_service (from `.symlinks/plugins/audio_service/ios`)
@@ -38,6 +42,8 @@ DEPENDENCIES:
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+  - volume_control (from `.symlinks/plugins/volume_control/ios`)
+  - volume_controller (from `.symlinks/plugins/volume_controller/ios`)
 
 SPEC REPOS:
   trunk:
@@ -65,6 +71,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sqflite/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
+  volume_control:
+    :path: ".symlinks/plugins/volume_control/ios"
+  volume_controller:
+    :path: ".symlinks/plugins/volume_controller/ios"
 
 SPEC CHECKSUMS:
   audio_service: f509d65da41b9521a61f1c404dd58651f265a567
@@ -79,6 +89,8 @@ SPEC CHECKSUMS:
   sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
+  volume_control: ae2b373c092d9ff5e57f704e9fa5e3098cc16d07
+  volume_controller: 531ddf792994285c9b17f9d8a7e4dcdd29b3eae9
 
 PODFILE CHECKSUM: b5d635a90ac772a80e7d49045c3770bd2e4729ae
 

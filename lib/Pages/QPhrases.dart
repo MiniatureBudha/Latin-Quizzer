@@ -162,7 +162,7 @@ class QPhrasesState extends State<QPhrases> {
         builder: (BuildContext context){
           return AlertDialog(
             content: Text(
-              q.getQuestion().infoText,
+              wrongQuestions[wrongQuestions.length-1].infoText,
             ),
           );
         }

@@ -149,7 +149,7 @@ class QLawState extends State<QLaw> {
               ),
             ),
             content: Text(
-              q.getQuestion().infoText,
+              wrongQuestions[wrongQuestions.length-1].infoText,
             ),
           );
         }
