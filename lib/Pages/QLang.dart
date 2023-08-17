@@ -23,6 +23,7 @@ class QLangState extends State<QLang> {
     ""
   ]; //saves choices when answerChoices() is called
   List<Question> wrongQuestions = []; //could be both vocab + other questions
+  List<Question> allQuestions = [];
   List<Color> answerChoiceColors = [
     ColorConstants.buttonColor,
     ColorConstants.buttonColor,
@@ -139,10 +140,6 @@ class QLangState extends State<QLang> {
     }
 
     setState(() {
-      if(true) {
-        qInfo();
-      }
-
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 4; i++) {
         //resets answer choice colors to default
@@ -151,6 +148,9 @@ class QLangState extends State<QLang> {
       nQuest++;
       q.nextQuestion();
       changeAnswerChoices();
+      if(true) {
+        qInfo();
+      }
     });
     return null;
   }
@@ -160,8 +160,17 @@ class QLangState extends State<QLang> {
         context: context,
         builder: (BuildContext context){
           return AlertDialog(
+            title: const Text(
+              'Wisdom',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.purple,
+                fontFamily: 'Neohellenic',
+              ),
+            ),
             content: Text(
-              wrongQuestions[wrongQuestions.length-1].infoText,
+              allQuestions[allQuestions.length-1].infoText,
             ),
           );
         }
@@ -256,6 +265,7 @@ class QLangState extends State<QLang> {
   }
 
   void check(int choiceIndex) {
+    allQuestions.add(q.getQuestion());
     answerChoiceColors[correctChoiceIndex] = ColorConstants
         .correctGreen; //so that right answer displayed when question wrong
 

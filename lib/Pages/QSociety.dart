@@ -23,6 +23,7 @@ class QSocietyState extends State<QSociety> {
     ""
   ]; //saves choices when answerChoices() is called
   List<Question> wrongQuestions = []; //could be both vocab + other questions
+  List<Question> allQuestions = [];
   List<Color> answerChoiceColors = [
     ColorConstants.buttonColor,
     ColorConstants.buttonColor,
@@ -157,14 +158,23 @@ class QSocietyState extends State<QSociety> {
 
   AlertDialog? qInfo() {
     showDialog(
-      context: context,
-      builder: (BuildContext context){
-        return AlertDialog(
-          content: Text(
-            wrongQuestions[wrongQuestions.length-1].infoText,
-          ),
-        );
-      }
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: const Text(
+              'Wisdom',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.purple,
+                fontFamily: 'Neohellenic',
+              ),
+            ),
+            content: Text(
+              allQuestions[allQuestions.length-1].infoText,
+            ),
+          );
+        }
     );
   }
 
@@ -255,7 +265,7 @@ class QSocietyState extends State<QSociety> {
   void check(int choiceIndex) {
     answerChoiceColors[correctChoiceIndex] = ColorConstants
         .correctGreen; //so that right answer displayed when question wrong
-
+    allQuestions.add(q.getQuestion());
     if (choiceIndex != correctChoiceIndex) {
       answerChoiceColors[choiceIndex] = ColorConstants.logoRed;
       wrongQuestions.add(q.getQuestion());

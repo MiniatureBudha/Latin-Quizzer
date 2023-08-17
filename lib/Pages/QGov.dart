@@ -23,6 +23,7 @@ class QGovState extends State<QGov> {
     ""
   ]; //saves choices when answerChoices() is called
   List<Question> wrongQuestions = []; //could be both vocab + other questions
+  List<Question> allQuestions = [];
   List<Color> answerChoiceColors = [
     ColorConstants.buttonColor,
     ColorConstants.buttonColor,
@@ -162,8 +163,17 @@ class QGovState extends State<QGov> {
         context: context,
         builder: (BuildContext context){
           return AlertDialog(
+            title: const Text(
+              'Wisdom',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.purple,
+                fontFamily: 'Neohellenic',
+              ),
+            ),
             content: Text(
-              wrongQuestions[wrongQuestions.length-1].infoText,
+              allQuestions[allQuestions.length-1].infoText,
             ),
           );
         }
@@ -258,6 +268,7 @@ class QGovState extends State<QGov> {
   }
 
   void check(int choiceIndex) {
+    allQuestions.add(q.getQuestion());
     answerChoiceColors[correctChoiceIndex] = ColorConstants
         .correctGreen; //so that right answer displayed when question wrong
 

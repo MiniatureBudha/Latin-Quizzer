@@ -23,6 +23,7 @@ class QLawState extends State<QLaw> {
     ""
   ]; //saves choices when answerChoices() is called
   List<Question> wrongQuestions = []; //could be both vocab + other questions
+  List<Question> allQuestions = [];
   List<Color> answerChoiceColors = [
     ColorConstants.buttonColor,
     ColorConstants.buttonColor,
@@ -116,7 +117,6 @@ class QLawState extends State<QLaw> {
           });
     }
 
-
     setState(() {
       if(true) {
         qInfo();
@@ -142,14 +142,14 @@ class QLawState extends State<QLaw> {
             title: const Text(
               'Wisdom',
               textAlign: TextAlign.center,
-                style: TextStyle(
+              style: TextStyle(
                 fontSize: 30,
                 color: Colors.purple,
                 fontFamily: 'Neohellenic',
               ),
             ),
             content: Text(
-              wrongQuestions[wrongQuestions.length-1].infoText,
+              allQuestions[allQuestions.length-1].infoText,
             ),
           );
         }
@@ -244,6 +244,7 @@ class QLawState extends State<QLaw> {
   }
 
   void check(int choiceIndex) {
+    allQuestions.add(q.getQuestion());
     answerChoiceColors[correctChoiceIndex] = ColorConstants
         .correctGreen; //so that right answer displayed when question wrong
 

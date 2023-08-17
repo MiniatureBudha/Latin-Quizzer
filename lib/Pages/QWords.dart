@@ -23,6 +23,7 @@ class QWordsState extends State<QWords> {
     ""
   ]; //saves choices when answerChoices() is called
   List<Question> wrongQuestions = []; //could be both vocab + other questions
+  List<Question> allQuestions = [];
   List<Color> answerChoiceColors = [
     ColorConstants.buttonColor,
     ColorConstants.buttonColor,
@@ -160,8 +161,17 @@ class QWordsState extends State<QWords> {
         context: context,
         builder: (BuildContext context){
           return AlertDialog(
+            title: const Text(
+              'Wisdom',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.purple,
+                fontFamily: 'Neohellenic',
+              ),
+            ),
             content: Text(
-              wrongQuestions[wrongQuestions.length-1].infoText,
+              allQuestions[allQuestions.length-1].infoText,
             ),
           );
         }
@@ -258,7 +268,7 @@ class QWordsState extends State<QWords> {
   void check(int choiceIndex) {
     answerChoiceColors[correctChoiceIndex] = ColorConstants
         .correctGreen; //so that right answer displayed when question wrong
-
+    allQuestions.add(q.getQuestion());
     if (choiceIndex != correctChoiceIndex) {
       answerChoiceColors[choiceIndex] = ColorConstants.logoRed;
       wrongQuestions.add(q.getQuestion());

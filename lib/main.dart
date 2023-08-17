@@ -47,7 +47,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    SettingsPage(callback: this.callback, volumeLevel: SettingsPageState.musicVolume);
+    SettingsPage(callback: callback, volumeLevel: SettingsPageState.musicVolume);
 
     player.play(AssetSource("CoverMusic.wav"));
     player.setVolume(num);
@@ -70,7 +70,7 @@ class HomePageState extends State<HomePage> {
         children: <Widget>[
           Center(
             child: Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 18),
               child: const Image(
                   image: ResizeImage(AssetImage('assets/Logo2.png'),
                       width: 200, height: 200)),
