@@ -33,10 +33,10 @@ class ChatBotPageState extends State<ChatBotPage> {
         ),
         backgroundColor: Colors.deepPurple,
       ),
-      body: Column(
+      body: const Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
+            SizedBox(
               width: 300,
               height: 300,
               child: Text(

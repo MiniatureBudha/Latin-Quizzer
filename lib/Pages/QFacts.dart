@@ -63,6 +63,7 @@ class QFactsState extends State<QFacts> {
                           fontFamily: 'Neohellenic',
                         ),
                       ),
+                      const SizedBox(width: 50, height: 50),
                       goodImage(),
                     ],
                   )
@@ -159,6 +160,7 @@ class QFactsState extends State<QFacts> {
           );
         }
     );
+    return null;
   }
 
   void changeAnswerChoices() {
@@ -213,7 +215,7 @@ class QFactsState extends State<QFacts> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: AssetImage('assets/CrownPic.jpg'));
+      return const Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 150, height: 120));
     }
     else{
       return const SizedBox(

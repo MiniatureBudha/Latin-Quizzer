@@ -68,6 +68,7 @@ class QWordsState extends State<QWords> {
                           fontFamily: 'Neohellenic',
                         ),
                       ),
+                      const SizedBox(width: 50, height: 50),
                       goodImage(),
                     ],
                   )
@@ -141,8 +142,9 @@ class QWordsState extends State<QWords> {
 
 
     setState(() {
-      if (wrongQuestions.contains(q.getQuestion()))
+      if(true) {
         qInfo();
+      }
 
       progressPercent += (100 * (1 / q.size()));
       for (int i = 0; i < 4; i++) {
@@ -176,6 +178,7 @@ class QWordsState extends State<QWords> {
           );
         }
     );
+    return null;
   }
 
   void changeAnswerChoices() {
@@ -280,7 +283,7 @@ class QWordsState extends State<QWords> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: AssetImage('assets/CrownPic.jpg'));
+      return const Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 150, height: 120));
     }
     else{
       return const SizedBox(

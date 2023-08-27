@@ -4,6 +4,7 @@ import 'package:flutter_app/Components/StandardButton.dart';
 import 'package:flutter_app/Pages/SnippetsQuizPage.dart';
 import 'package:flutter_app/Pages/RomeQuizPage.dart';
 import 'package:flutter_app/Pages/LatinQuiz.dart';
+import 'Pages/InfoPage.dart';
 import 'Pages/Intro1.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_app/Pages/SettingsPage.dart';
@@ -121,7 +122,7 @@ class HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomAppBar(
         color: Colors.deepPurple,
         child: Container(
-          padding: EdgeInsets.only(bottom: 15),
+          padding: const EdgeInsets.only(bottom: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -129,7 +130,7 @@ class HomePageState extends State<HomePage> {
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.settings,
                   size: 30,
                   color: Colors.white,
@@ -139,7 +140,7 @@ class HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return SettingsPage(callback: this.callback, volumeLevel: SettingsPageState.musicVolume);
+                        return SettingsPage(callback: callback, volumeLevel: SettingsPageState.musicVolume);
                       },
                     ),
                   ),
@@ -149,23 +150,21 @@ class HomePageState extends State<HomePage> {
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
-                  Icons.stacked_bar_chart_sharp,
-                  size: 30,
-                  color: Colors.white,
-                ),
-                onPressed: null,
-              ),
-              OutlinedButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                ),
-                child: Icon(
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const InfoPage();
+                      },
+                    ),
+                  ),
+                },
+                child: const Icon(
                   Icons.info,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: null,
               ),
             ],
           ),

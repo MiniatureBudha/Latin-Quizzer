@@ -77,17 +77,7 @@ class SnippetsQuizPage extends StatelessWidget {
                   }),
                 ),
               ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: StandardButton("Latin AI Chatbot", () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return const ChatBotPage();
-                    }));
-                  }),
-                ),
-              ),
-        ]
+          ]
         )
     );
   }

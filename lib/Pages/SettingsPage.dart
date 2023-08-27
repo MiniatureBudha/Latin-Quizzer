@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
-import 'package:flutter_app/Components/StandardButton.dart';
 import 'package:flutter_app/Pages/HomePage.dart';
-import 'dart:async';
 
 class SettingsPage extends StatefulWidget {
   double volumeLevel;
   Function callback;
 
-  SettingsPage({required this.volumeLevel, required this.callback});
+  SettingsPage({super.key, required this.volumeLevel, required this.callback});
 
   @override
   SettingsPageState createState() => SettingsPageState();
@@ -30,7 +28,7 @@ class SettingsPageState extends State<SettingsPage> {
           'Settings',
           style: TextStyle(
             color: Colors.white,
-            fontFamily: 'M PLUS Code Latin',
+            fontFamily: 'Neohellenic',
           ),
         ),
         backgroundColor: Colors.deepPurple,
@@ -49,15 +47,15 @@ class SettingsPageState extends State<SettingsPage> {
                     border: Border.all(
                         color: Colors.deepPurple
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(2)),
+                    borderRadius: const BorderRadius.all(Radius.circular(2)),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
-                      'Volume:',
+                      'Music Volume:',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
-                        fontFamily: 'M PLUS Code Latin',
+                        fontFamily: 'Neohellenic',
                       ),
                     ),
                   ),
@@ -77,26 +75,17 @@ class SettingsPageState extends State<SettingsPage> {
       bottomNavigationBar: BottomAppBar(
         color: Colors.deepPurple,
         child: Container(
-          padding: EdgeInsets.only(bottom: 15),
+          padding: const EdgeInsets.only(bottom: 15),
           child: OutlinedButton(
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                 ),
-                child: Icon(
+            onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
+                child: const Icon(
                   Icons.home,
                   size: 30,
                   color: Colors.white,
                 ),
-                onPressed: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const HomePage();
-                      },
-                    ),
-                  ),
-                },
               ),
         ),
       ),

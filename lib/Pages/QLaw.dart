@@ -68,6 +68,7 @@ class QLawState extends State<QLaw> {
                           fontFamily: 'Neohellenic',
                         ),
                       ),
+                      const SizedBox(width: 50, height: 50),
                       goodImage(),
                     ],
                   )
@@ -154,6 +155,7 @@ class QLawState extends State<QLaw> {
           );
         }
     );
+    return null;
   }
 
   void changeAnswerChoices() {
@@ -259,7 +261,7 @@ class QLawState extends State<QLaw> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: AssetImage('assets/CrownPic.jpg'));
+      return const Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 150, height: 120));
     }
     else{
       return const SizedBox(

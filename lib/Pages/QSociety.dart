@@ -68,6 +68,7 @@ class QSocietyState extends State<QSociety> {
                           fontFamily: 'Neohellenic',
                         ),
                       ),
+                      const SizedBox(width: 50, height: 50),
                       goodImage(),
                     ],
                   )),
@@ -176,6 +177,7 @@ class QSocietyState extends State<QSociety> {
           );
         }
     );
+    return null;
   }
 
   void changeAnswerChoices() {
@@ -275,9 +277,10 @@ class QSocietyState extends State<QSociety> {
   }
 
   Widget goodImage() {
-    if (correctlyAnswered / q.size() >= .8) {
-      return const Image(image: AssetImage('assets/CrownPic.jpg'));
-    } else {
+    if(correctlyAnswered/q.size() >= .8){
+      return const Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 150, height: 120));
+    }
+    else {
       return const SizedBox(
         width: 100,
         height: 100,

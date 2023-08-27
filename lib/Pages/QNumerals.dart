@@ -67,6 +67,7 @@ class QNumeralsState extends State<QNumerals> {
                           fontFamily: 'Neohellenic',
                         ),
                       ),
+                      const SizedBox(width: 50, height: 50),
                       goodImage(),
                     ],
                   )
@@ -150,19 +151,6 @@ class QNumeralsState extends State<QNumerals> {
       changeAnswerChoices();
     });
     return null;
-  }
-
-  AlertDialog? qInfo() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context){
-          return AlertDialog(
-            content: Text(
-              wrongQuestions[wrongQuestions.length-1].infoText,
-            ),
-          );
-        }
-    );
   }
 
   void changeAnswerChoices() {
@@ -261,7 +249,7 @@ class QNumeralsState extends State<QNumerals> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: AssetImage('assets/CrownPic.jpg'));
+      return const Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 150, height: 120));
     }
     else{
       return const SizedBox(
