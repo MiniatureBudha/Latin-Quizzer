@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../Components/StandardButton.dart';
 import '../Constants/color_constants.dart';
-import 'ChatBotPage.dart';
 import 'QWords.dart';
 import 'QNumerals.dart';
 import 'QPhrases.dart';

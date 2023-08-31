@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
-import 'package:flutter_app/Pages/HomePage.dart';
 
 class InfoPage extends StatefulWidget {
 
