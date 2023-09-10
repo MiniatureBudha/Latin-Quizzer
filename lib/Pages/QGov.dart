@@ -141,21 +141,20 @@ class QGovState extends State<QGov> {
     }
 
 
-    setState(() {
-      if(true) {
-        qInfo();
+      setState(() {
+        progressPercent += (100 * (1 / q.size()));
+        for (int i = 0; i < 4; i++) {
+          //resets answer choice colors to default
+          answerChoiceColors[i] = ColorConstants.buttonColor;
+        }
+        nQuest++;
+        q.nextQuestion();
+        changeAnswerChoices();
+        if(true) {
+          qInfo();
+        }
       }
-
-      progressPercent += (100 * (1 / q.size()));
-      for (int i = 0; i < 4; i++) {
-        //resets answer choice colors to default
-        answerChoiceColors[i] = ColorConstants.buttonColor;
-      }
-      qInfo();
-      nQuest++;
-      q.nextQuestion();
-      changeAnswerChoices();
-    });
+    );
     return null;
   }
 
@@ -358,13 +357,16 @@ class QGovState extends State<QGov> {
               ),
               Expanded(
                 child: Center(
-                  child: Text(
-                    q.getQuestionText(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontFamily: 'M PLUS Code Latin',
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: Text(
+                      q.getQuestionText(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontFamily: 'Neohellenic',
+                      ),
                     ),
                   ),
                 ),
@@ -409,34 +411,12 @@ class QGovState extends State<QGov> {
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                 ),
-                onPressed: null,
-                child: const Icon(
-                  Icons.settings,
-                  size: 30,
-                  color: Colors.white,
-                ),
-              ),
-              OutlinedButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                ),
                 child: const Icon(
                   Icons.home,
                   size: 30,
                   color: Colors.white,
                 ),
                 onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
-              ),
-              OutlinedButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                ),
-                onPressed: null,
-                child: const Icon(
-                  Icons.info,
-                  size: 30,
-                  color: Colors.white,
-                ),
               ),
             ],
           ),

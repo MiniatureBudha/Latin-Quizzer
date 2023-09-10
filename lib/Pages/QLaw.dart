@@ -334,13 +334,16 @@ class QLawState extends State<QLaw> {
               ),
               Expanded(
                 child: Center(
-                  child: Text(
-                    q.getQuestionText(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontFamily: 'M PLUS Code Latin',
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+                    child: Text(
+                      q.getQuestionText(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontFamily: 'Neohellenic',
+                      ),
                     ),
                   ),
                 ),
@@ -385,34 +388,12 @@ class QLawState extends State<QLaw> {
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                 ),
-                onPressed: null,
-                child: const Icon(
-                  Icons.settings,
-                  size: 30,
-                  color: Colors.white,
-                ),
-              ),
-              OutlinedButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                ),
                 child: const Icon(
                   Icons.home,
                   size: 30,
                   color: Colors.white,
                 ),
                 onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
-              ),
-              OutlinedButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                ),
-                onPressed: null,
-                child: const Icon(
-                  Icons.info,
-                  size: 30,
-                  color: Colors.white,
-                ),
               ),
             ],
           ),

@@ -63,6 +63,7 @@ class LatinQuizState extends State<LatinQuiz> {
                           fontFamily: 'Neohellenic',
                         ),
                       ),
+                      const SizedBox(width: 50, height: 50),
                       goodImage(),
                     ],
                   )
@@ -274,13 +275,16 @@ class LatinQuizState extends State<LatinQuiz> {
               ),
               Expanded(
                 child: Center(
-                  child: Text(
-                    q.getQuestionText(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontFamily: 'Neohellenic',
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+                    child: Text(
+                      q.getQuestionText(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontFamily: 'Neohellenic',
+                      ),
                     ),
                   ),
                 ),
@@ -320,34 +324,12 @@ class LatinQuizState extends State<LatinQuiz> {
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                 ),
-                onPressed: null,
-                child: const Icon(
-                  Icons.settings,
-                  size: 30,
-                  color: Colors.white,
-                ),
-              ),
-              OutlinedButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                ),
                 child: const Icon(
                   Icons.home,
                   size: 30,
                   color: Colors.white,
                 ),
                 onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
-              ),
-              OutlinedButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                ),
-                onPressed: null,
-                child: const Icon(
-                  Icons.info,
-                  size: 30,
-                  color: Colors.white,
-                ),
               ),
             ],
           ),

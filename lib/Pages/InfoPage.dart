@@ -48,11 +48,16 @@ class InfoPageState extends State<InfoPage> {
                     fontSize: 20,
                     fontFamily: 'Neohellenic',
                   ),
-                  'The purpose of Latin Learner is to encourage more students to study Latin and the classics by educating them on the significant role that Latin and Roman culture have had in shaping Western civilization and the modern United States; '
-                      'Latin it is very much alive and well, you just have to know where to look and how to use it!',
+                  'The purpose of Latin Learner is to encourage more students to study Latin and the classics by educating them on the significant role that Latin and Roman culture have had in shaping Western civilization and the modern United States; \n\n\n '
+                      'Latin it is very much alive and well, you just have to know where to look and how to use it!'
+                  'Latin Learner should be used by middle and high school students, as well as teachers and curriculum advisors. \n\n\n'
+                    'Scores of 80% or higher on quizzes earn a high performance badge in the form of a Roman laurel wreath crown. \n'
                 ),
-              )
+              ),
           ),
+          const Center(
+              child: Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 150, height: 120)),
+          )
         ],
       ),
       bottomNavigationBar: BottomAppBar(
