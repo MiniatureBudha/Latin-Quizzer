@@ -73,7 +73,7 @@ class HomePageState extends State<HomePage> {
             child: Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 18),
               child: const Image(
-                  image: ResizeImage(AssetImage('assets/Logo2.png'),
+                  image: ResizeImage(AssetImage('assets/Logo3.png'),
                       width: 200, height: 200)),
             ),
           ), //says Latin Learner

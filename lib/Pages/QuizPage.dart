@@ -75,7 +75,7 @@ class QuizPage extends StatelessWidget {
               child: StandardButton("Common Words", () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) {
-                      return QuizzerPage();
+                      return const QuizzerPage();
                     }));
               }),
             ),
