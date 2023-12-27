@@ -5,15 +5,32 @@ PODS:
     - FlutterMacOS
   - audioplayers_darwin (0.0.1):
     - FlutterMacOS
+  - Firebase/CoreOnly (10.16.0):
+    - FirebaseCore (= 10.16.0)
+  - firebase_core (2.20.0):
+    - Firebase/CoreOnly (~> 10.16.0)
+    - FlutterMacOS
+  - FirebaseCore (10.16.0):
+    - FirebaseCoreInternal (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Logger (~> 7.8)
+  - FirebaseCoreInternal (10.16.0):
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
   - FlutterMacOS (1.0.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - GoogleUtilities/Environment (7.11.5):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.11.5):
+    - GoogleUtilities/Environment
+  - "GoogleUtilities/NSData+zlib (7.11.5)"
   - just_audio (0.0.1):
     - FlutterMacOS
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - PromisesObjC (2.3.1)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -27,6 +44,7 @@ DEPENDENCIES:
   - audio_service (from `Flutter/ephemeral/.symlinks/plugins/audio_service/macos`)
   - audio_session (from `Flutter/ephemeral/.symlinks/plugins/audio_session/macos`)
   - audioplayers_darwin (from `Flutter/ephemeral/.symlinks/plugins/audioplayers_darwin/macos`)
+  - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
   - just_audio (from `Flutter/ephemeral/.symlinks/plugins/just_audio/macos`)
   - path_provider_foundation (from `Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin`)
@@ -36,7 +54,12 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Firebase
+    - FirebaseCore
+    - FirebaseCoreInternal
     - FMDB
+    - GoogleUtilities
+    - PromisesObjC
 
 EXTERNAL SOURCES:
   audio_service:
@@ -45,6 +68,8 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/audio_session/macos
   audioplayers_darwin:
     :path: Flutter/ephemeral/.symlinks/plugins/audioplayers_darwin/macos
+  firebase_core:
+    :path: Flutter/ephemeral/.symlinks/plugins/firebase_core/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
   just_audio:
@@ -62,10 +87,16 @@ SPEC CHECKSUMS:
   audio_service: b88ff778e0e3915efd4cd1a5ad6f0beef0c950a9
   audio_session: dea1f41890dbf1718f04a56f1d6150fd50039b72
   audioplayers_darwin: dcad41de4fbd0099cb3749f7ab3b0cb8f70b810c
+  Firebase: 25899099b77d255a636e3579c3d9dce10ec150d5
+  firebase_core: 844b9a36afc5874a395699929626d594a448183d
+  FirebaseCore: 65a801af84cca84361ef9eac3fd868656968a53b
+  FirebaseCoreInternal: 26233f705cc4531236818a07ac84d20c333e505a
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
   just_audio: 9b67ca7b97c61cfc9784ea23cd8cc55eb226d489
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   sqflite: a5789cceda41d54d23f31d6de539d65bb14100ea
   url_launcher_macos: d2691c7dd33ed713bf3544850a623080ec693d95
