@@ -7,7 +7,7 @@ class TextConstants {
   TextConstants._init();
 
   static getButtonTextTheme(BuildContext context) {
-    return Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white);
+    return Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white);
   }
 
   static popupTextTheme(BuildContext context) {
@@ -28,21 +28,21 @@ class TextConstants {
 
   static greyAppBarTextStyle(BuildContext context) {
     return GoogleFonts.montserrat(
-        textStyle: Theme.of(context).textTheme.headline4,
+        textStyle: Theme.of(context).textTheme.headlineMedium,
         color: const Color(0xff5E5F5E),
         fontWeight: FontWeight.w600);
   }
 
   static whiteAppBarTextStyle(BuildContext context) {
     return GoogleFonts.montserrat(
-        textStyle: Theme.of(context).textTheme.headline4,
+        textStyle: Theme.of(context).textTheme.headlineMedium,
         color: Colors.white,
         fontWeight: FontWeight.w600);
   }
 
   static leaderboardAppBarTextStyle(BuildContext context) {
     return GoogleFonts.montserrat(
-        textStyle: Theme.of(context).textTheme.headline4,
+        textStyle: Theme.of(context).textTheme.headlineMedium,
         color: const Color(0xff595CFF),
         fontWeight: FontWeight.w600);
   }
@@ -57,7 +57,7 @@ class TextConstants {
 
   static playButtonTextStyles(BuildContext context) {
     return GoogleFonts.acme(
-        textStyle: Theme.of(context).textTheme.headline2,
+        textStyle: Theme.of(context).textTheme.displayMedium,
         color: Colors.white)
         .copyWith(
         color: Colors.white,

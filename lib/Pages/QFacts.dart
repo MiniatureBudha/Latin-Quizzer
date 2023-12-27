@@ -236,7 +236,7 @@ class QFactsState extends State<QFacts> {
 
     for (int i = 0; i < 2; i++) {
       buttonFunctions[i] =
-          () => null; //locks out buttons after user answers question
+          () {}; //locks out buttons after user answers question
     }
 
     Timer(Duration(seconds: time), () {

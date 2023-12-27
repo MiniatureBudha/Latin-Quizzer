@@ -11,15 +11,17 @@ class ChatBotPage extends StatefulWidget {
 
 class ChatBotPageState extends State<ChatBotPage> {
 
-  final openAI = OpenAI.instance.build(token: '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',baseOption: HttpSetup(receiveTimeout: 5000));
 
   @override
   Widget build(BuildContext context) {
+    /*
     final request = CompleteText(prompt:'Why?', model: kTranslateModelV3, maxTokens: 200);
     openAI.onCompleteStream(request:request).listen((response) => print(response))
         .onError((err) {
     print("$err");
     });
+
+     */
 
     return Scaffold(
       backgroundColor: ColorConstants.whiteBackround,

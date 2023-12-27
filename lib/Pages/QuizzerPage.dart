@@ -9,6 +9,8 @@ import 'dart:async';
 import 'HomePage.dart';
 
 class QuizzerPage extends StatefulWidget {
+  const QuizzerPage({super.key});
+
   @override
   QuizzerPageState createState() => QuizzerPageState();
 }
@@ -228,7 +230,7 @@ class QuizzerPageState extends State<QuizzerPage> {
 
     for (int i = 0; i < 4; i++) {
       buttonFunctions[i] =
-          () => null; //locks out buttons after user answers question
+          () {}; //locks out buttons after user answers question
     }
 
     Timer(Duration(seconds: time), () {

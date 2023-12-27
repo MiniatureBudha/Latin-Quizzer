@@ -6,7 +6,6 @@ import 'package:flutter_app/Components/ExpandableButton.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'dart:math';
 import 'dart:async';
-import '../Quizzes/QLitData.dart';
 
 class QLit extends StatefulWidget {
   const QLit({super.key});
@@ -306,7 +305,7 @@ class QLitState extends State<QLit> {
 
     for (int i = 0; i < 4; i++) {
       buttonFunctions[i] =
-          () => null; //locks out buttons after user answers question
+          () {}; //locks out buttons after user answers question
     }
 
     Timer(Duration(seconds: time), () {

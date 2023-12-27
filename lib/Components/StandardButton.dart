@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 
 class StandardButton extends StatelessWidget {
-  const StandardButton(this.text, this.onPressed);
+  const StandardButton(this.text, this.onPressed, {super.key});
   final String text;
   final VoidCallback onPressed;
 

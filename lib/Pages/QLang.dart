@@ -303,7 +303,7 @@ class QLangState extends State<QLang> {
 
     for (int i = 0; i < 4; i++) {
       buttonFunctions[i] =
-          () => null; //locks out buttons after user answers question
+          () {}; //locks out buttons after user answers question
     }
 
     Timer(Duration(seconds: time), () {
