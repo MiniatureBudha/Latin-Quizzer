@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Components/StandardButton.dart';
-import 'package:flutter_app/Pages/SnippetsQuizPage.dart';
-import 'package:flutter_app/Pages/RomeQuizPage.dart';
-import 'package:flutter_app/Pages/LatinQuiz.dart';
-import 'Pages/InfoPage.dart';
-import 'Pages/Intro1.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_app/Pages/SettingsPage.dart';
+
+import 'Pages/QGov.dart';
 
 void main() => runApp(const MyApp());
 
@@ -30,15 +26,6 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   double num = 1;
 
-  final player = AudioPlayer();
-
-  void setVolume(double newVolume){
-    //player.stop();
-    player.setVolume(newVolume);
-    //player.play(AssetSource("CoverMusic.wav"));
-  }
-
-
   callback(newValue){
     setState(() {
       num = newValue;
@@ -50,69 +37,35 @@ class HomePageState extends State<HomePage> {
 
     SettingsPage(callback: callback, volumeLevel: SettingsPageState.musicVolume);
 
-    player.play(AssetSource("CoverMusic.wav"));
-    player.setVolume(num);
-
     return Scaffold(
       backgroundColor: ColorConstants.whiteBackround,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text(
-          'Home',
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: 'Neohellenic',
-          ),
-        ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.blueAccent,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Center(
-            child: Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 18),
-              child: const Image(
-                  image: ResizeImage(AssetImage('assets/Logo2.png'),
-                      width: 200, height: 200)),
-            ),
-          ), //says Latin Learner
-          Center(
+          const Center(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: StandardButton("Introduction to Latin", () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const Intro1();
-                }));
-              }),
+              padding: EdgeInsets.all(15.0),
+              child: Text(
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Neohellenic',
+                  ),
+                  'Test your knowledge! \n'
+                      'Take a 10 question quiz to learn more about some of the Art Coast’s most iconic attractions. \n'
+                      'Scores of 8 or higher earn a STAR. \n'),
             ),
           ),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(10.0),
-              child: StandardButton("Ancient Rome in Our Modern World", () {
+              child: StandardButton("Initial Quiz", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const RomeQuizPage();
-                }));
-              }),
-            ),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: StandardButton("Latin Snippets", () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const SnippetsQuizPage();
-                }));
-              }),
-            ),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: StandardButton("Why Study Latin", () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const LatinQuiz();
+                  return const QGov();
                 }));
               }),
             ),
@@ -120,7 +73,7 @@ class HomePageState extends State<HomePage> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.deepPurple,
+        color: Colors.blueAccent,
         child: Container(
           padding: const EdgeInsets.only(bottom: 15),
           child: Row(
@@ -128,7 +81,7 @@ class HomePageState extends State<HomePage> {
             children: <Widget>[
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
+                  backgroundColor: Colors.blueAccent,
                 ),
                 child: const Icon(
                   Icons.settings,
@@ -145,26 +98,6 @@ class HomePageState extends State<HomePage> {
                     ),
                   ),
                 },
-              ),
-              OutlinedButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                ),
-                onPressed: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const InfoPage();
-                      },
-                    ),
-                  ),
-                },
-                child: const Icon(
-                  Icons.info,
-                  size: 30,
-                  color: Colors.white,
-                ),
               ),
             ],
           ),

@@ -52,7 +52,7 @@ class QGovState extends State<QGov> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
-                  color: Colors.purple,
+                  color: Colors.blueAccent,
                   fontFamily: 'Neohellenic',
                 ),
               ),
@@ -78,28 +78,6 @@ class QGovState extends State<QGov> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    /*
-                    if (correctlyAnswered == q.size()) {
-                      q.reset();
-                      nQuest = 1;
-                      progressPercent = 0;
-                      correctlyAnswered = 0;
-                      Navigator.of(context).pop();
-                      setState(() {
-                        initialize();
-                      });
-                    }
-                    else {
-                      q.newCycle(wrongQuestions);
-                      progressPercent = 0;
-                      nQuest = 1;
-                      correctlyAnswered = 0;
-                      Navigator.of(context).pop();
-                      setState(() {
-                        initialize();
-                      });
-                    }
-                     */
                     q.reset();
                     nQuest = 1;
                     progressPercent = 0;
@@ -168,7 +146,7 @@ class QGovState extends State<QGov> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 30,
-                color: Colors.purple,
+                color: Colors.blueAccent,
                 fontFamily: 'Neohellenic',
               ),
             ),
@@ -329,7 +307,7 @@ class QGovState extends State<QGov> {
             fontFamily: 'Neohellenic',
           ),
         ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.blueAccent,
       ),
       body: SafeArea(
         child: Padding(
@@ -339,7 +317,7 @@ class QGovState extends State<QGov> {
             children: <Widget>[
               FAProgressBar(
                 size: 5,
-                progressColor: ColorConstants.deepPurple,
+                progressColor: Colors.blueAccent,
                 currentValue: progressPercent,
               ),
               Expanded(
@@ -401,7 +379,7 @@ class QGovState extends State<QGov> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.deepPurple,
+        color: Colors.blueAccent,
         child: Container(
           padding: const EdgeInsets.only(bottom: 20),
           child: Row(
@@ -409,7 +387,7 @@ class QGovState extends State<QGov> {
             children: <Widget>[
               OutlinedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
+                  backgroundColor: Colors.blueAccent,
                 ),
                 child: const Icon(
                   Icons.home,
