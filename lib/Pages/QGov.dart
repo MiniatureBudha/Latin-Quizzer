@@ -48,7 +48,7 @@ class QGovState extends State<QGov> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text(
-                'Gratulationes!',
+                'Congrats!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
@@ -91,7 +91,7 @@ class QGovState extends State<QGov> {
                     backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Iterum/Again',
+                    'Again',
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -105,7 +105,7 @@ class QGovState extends State<QGov> {
                     backgroundColor: ColorConstants.buttonColor,
                   ),
                   child: const Text(
-                    'Domum/Home',
+                    'Home',
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -142,7 +142,7 @@ class QGovState extends State<QGov> {
         builder: (BuildContext context){
           return AlertDialog(
             title: const Text(
-              'Wisdom',
+              'Answer',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 30,
@@ -261,15 +261,10 @@ class QGovState extends State<QGov> {
   }
 
   Widget goodImage(){
-    if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: ResizeImage(AssetImage('assets/LaurelPic.png'), width: 150, height: 120));
-    }
-    else{
-      return const SizedBox(
-        width: 100,
-        height: 100,
-      );
-    }
+    return const SizedBox(
+      width: 100,
+      height: 100,
+    );
   }
 
   void questionAnimation(int choiceIndex) {
@@ -301,7 +296,7 @@ class QGovState extends State<QGov> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Government',
+          'Chain Ferry',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Neohellenic',

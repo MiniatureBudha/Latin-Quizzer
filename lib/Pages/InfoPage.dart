@@ -26,7 +26,7 @@ class InfoPageState extends State<InfoPage> {
             fontFamily: 'Neohellenic',
           ),
         ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.blueAccent,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,11 +50,6 @@ class InfoPageState extends State<InfoPage> {
             ),
           ),
           const Center(
-            child: Image(
-                image: ResizeImage(AssetImage('assets/LaurelPic.png'),
-                    width: 150, height: 120)),
-          ),
-          const Center(
             child: Padding(
               padding: EdgeInsets.fromLTRB(15, 30, 15, 15),
               child: Text(
@@ -70,12 +65,12 @@ class InfoPageState extends State<InfoPage> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.deepPurple,
+        color: Colors.blueAccent,
         child: Container(
           padding: const EdgeInsets.only(bottom: 15),
           child: OutlinedButton(
             style: TextButton.styleFrom(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Colors.blueAccent,
             ),
             onPressed: () =>
                 Navigator.popUntil(context, ModalRoute.withName('/')),

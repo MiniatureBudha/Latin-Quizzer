@@ -3,6 +3,7 @@ import 'package:flutter_app/Constants/color_constants.dart';
 import 'package:flutter_app/Components/StandardButton.dart';
 import 'package:flutter_app/Pages/SettingsPage.dart';
 
+import 'Pages/InfoPage.dart';
 import 'Pages/QGov.dart';
 
 void main() => runApp(const MyApp());
@@ -83,21 +84,21 @@ class HomePageState extends State<HomePage> {
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                 ),
-                child: const Icon(
-                  Icons.settings,
-                  size: 30,
-                  color: Colors.white,
-                ),
                 onPressed: () => {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return SettingsPage(callback: callback, volumeLevel: SettingsPageState.musicVolume);
+                        return const InfoPage();
                       },
                     ),
                   ),
                 },
+                child: const Icon(
+                  Icons.info,
+                  size: 30,
+                  color: Colors.white,
+                ),
               ),
             ],
           ),
