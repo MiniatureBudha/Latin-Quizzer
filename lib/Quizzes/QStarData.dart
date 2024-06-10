@@ -13,7 +13,7 @@ class QStarData {
     Question("What is the total length of the Star of Saugatuck II, including vessel and paddlewheel?", "80 feet", "60 feet", "70 feet", "90 feet", "80 feet"),
     Question("How many passengers can the Star of Saugatuck II seat?", "120", "90", "100", "110", "120"),
     Question("A tour on the Star of Saugatuck II takes approximately how long?", "90 minutes", "30 minutes", "60 minutes", "120 minutes", "90 minutes"),
-    Question("Which body of water does the Star of Saugatuck II NOT visit?", "The Saugatuck River", "Lake Michigan", "The Kalamazoo River", " LakeKalamazoo", "The Saugatuck River"),
+    Question("Which body of water does the Star of Saugatuck II NOT visit?", "The Saugatuck River", "Lake Michigan", "The Kalamazoo River", " Lake Kalamazoo", "The Saugatuck River"),
   ];
   List<Question> _originalBank =
   []; //preserves original questions so that even after another round with less questions is started, random answer choices still draw from original bank (so that there's no repeats when there's less than 4 questions)
