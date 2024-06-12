@@ -151,6 +151,7 @@ class QStarState extends State<QStar> {
               ),
             ),
             content: Text(
+              textAlign: TextAlign.center,
               allQuestions[allQuestions.length-1].infoText,
             ),
           );
@@ -261,10 +262,15 @@ class QStarState extends State<QStar> {
   }
 
   Widget goodImage(){
-    return const SizedBox(
-      width: 100,
-      height: 100,
-    );
+    if(correctlyAnswered/q.size() >= .8){
+      return const Image(image: ResizeImage(AssetImage('assets/BlueStar.png'), width: 150, height: 120));
+    }
+    else{
+      return const SizedBox(
+        width: 100,
+        height: 100,
+      );
+    }
   }
 
   void questionAnimation(int choiceIndex) {
@@ -296,7 +302,7 @@ class QStarState extends State<QStar> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Chain Ferry',
+          'Star of Saugatuck',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Neohellenic',

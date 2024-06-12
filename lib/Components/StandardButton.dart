@@ -9,8 +9,8 @@ class StandardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200,
-      height: 50,
+      width: 190,
+      height: 60,
       child: OutlinedButton(
         style: TextButton.styleFrom(
           backgroundColor: ColorConstants.buttonColor,

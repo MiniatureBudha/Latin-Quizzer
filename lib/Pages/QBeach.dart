@@ -151,6 +151,7 @@ class QBeachState extends State<QBeach> {
               ),
             ),
             content: Text(
+              textAlign: TextAlign.center,
               allQuestions[allQuestions.length-1].infoText,
             ),
           );
@@ -261,10 +262,15 @@ class QBeachState extends State<QBeach> {
   }
 
   Widget goodImage(){
-    return const SizedBox(
-      width: 100,
-      height: 100,
-    );
+    if(correctlyAnswered/q.size() >= .8){
+      return const Image(image: ResizeImage(AssetImage('assets/BlueStar.png'), width: 150, height: 120));
+    }
+    else{
+      return const SizedBox(
+        width: 100,
+        height: 100,
+      );
+    }
   }
 
   void questionAnimation(int choiceIndex) {
@@ -296,7 +302,7 @@ class QBeachState extends State<QBeach> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Chain Ferry',
+          'Oval Beach and Lake Michigan',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Neohellenic',
