@@ -128,9 +128,6 @@ class QBeachState extends State<QBeach> {
         nQuest++;
         q.nextQuestion();
         changeAnswerChoices();
-        if(true) {
-          qInfo();
-        }
       }
     );
     return null;

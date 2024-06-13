@@ -128,9 +128,6 @@ class QGovState extends State<QGov> {
         nQuest++;
         q.nextQuestion();
         changeAnswerChoices();
-        if(true) {
-          qInfo();
-        }
       }
     );
     return null;

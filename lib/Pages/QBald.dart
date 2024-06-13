@@ -128,9 +128,6 @@ class QBaldState extends State<QBald> {
         nQuest++;
         q.nextQuestion();
         changeAnswerChoices();
-        if(true) {
-          qInfo();
-        }
       }
     );
     return null;

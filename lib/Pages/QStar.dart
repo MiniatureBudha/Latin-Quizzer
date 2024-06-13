@@ -128,9 +128,6 @@ class QStarState extends State<QStar> {
         nQuest++;
         q.nextQuestion();
         changeAnswerChoices();
-        if(true) {
-          qInfo();
-        }
       }
     );
     return null;
