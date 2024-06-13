@@ -53,7 +53,7 @@ class QBeachState extends State<QBeach> {
                 style: TextStyle(
                   fontSize: 50,
                   color: Colors.blueAccent,
-                  fontFamily: 'Neohellenic',
+                  fontFamily: 'Lato',
                 ),
               ),
               content: Padding(
@@ -65,7 +65,7 @@ class QBeachState extends State<QBeach> {
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.black,
-                          fontFamily: 'Neohellenic',
+                          fontFamily: 'Lato',
                         ),
                       ),
                       const SizedBox(width: 50, height: 50),
@@ -95,7 +95,7 @@ class QBeachState extends State<QBeach> {
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
-                      fontFamily: 'Neohellenic',
+                      fontFamily: 'Lato',
                     ),
                   ),
                 ),
@@ -109,7 +109,7 @@ class QBeachState extends State<QBeach> {
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
-                      fontFamily: 'Neohellenic',
+                      fontFamily: 'Lato',
                     ),
                   ),
                 ),
@@ -144,7 +144,7 @@ class QBeachState extends State<QBeach> {
               style: TextStyle(
                 fontSize: 30,
                 color: Colors.blueAccent,
-                fontFamily: 'Neohellenic',
+                fontFamily: 'Lato',
               ),
             ),
             content: Text(
@@ -302,7 +302,7 @@ class QBeachState extends State<QBeach> {
           'Oval Beach and Lake Michigan',
           style: TextStyle(
             color: Colors.white,
-            fontFamily: 'Neohellenic',
+            fontFamily: 'Lato',
           ),
         ),
         backgroundColor: Colors.blueAccent,
@@ -326,7 +326,7 @@ class QBeachState extends State<QBeach> {
                     style: const TextStyle(
                       fontSize: 20,
                       color: Colors.black,
-                      fontFamily: 'Neohellenic',
+                      fontFamily: 'Lato',
                     ),
                   ),
                 ),
@@ -341,7 +341,7 @@ class QBeachState extends State<QBeach> {
                       style: const TextStyle(
                         fontSize: 20,
                         color: Colors.black,
-                        fontFamily: 'Neohellenic',
+                        fontFamily: 'Lato',
                       ),
                     ),
                   ),

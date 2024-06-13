@@ -84,7 +84,7 @@ class InfoPageState extends State<InfoPage> {
           'Local Links',
           style: TextStyle(
             color: Colors.white,
-            fontFamily: 'Neohellenic',
+            fontFamily: 'Lato',
           ),
         ),
         backgroundColor: Colors.blueAccent,
@@ -98,7 +98,7 @@ class InfoPageState extends State<InfoPage> {
                   style: TextStyle(
                     color: ColorConstants.buttonColor,
                     fontSize: 40,
-                    fontFamily: 'Neohellenic',
+                    fontFamily: 'Lato',
                   ),
                   'Saugatuck Douglas'
               ),
@@ -154,7 +154,7 @@ class InfoPageState extends State<InfoPage> {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(5.0),
-              child: StandardButton("City of Douglass Website", () {
+              child: StandardButton("City of Douglas Website", () {
                 _launchUrl7();
               }),
             ),
@@ -162,7 +162,7 @@ class InfoPageState extends State<InfoPage> {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(5.0),
-              child: StandardButton("Saugatuck Douglass Website", () {
+              child: StandardButton("Saugatuck Douglas Website", () {
                 _launchUrl8();
               }),
             ),

@@ -46,7 +46,7 @@ class HomePageState extends State<HomePage> {
         title: const Text(
             style: TextStyle(
               color: Colors.white,
-              fontFamily: 'Neohellenic',
+              fontFamily: 'Lato',
             ),
             "Home"
         ),
@@ -62,7 +62,7 @@ class HomePageState extends State<HomePage> {
                   style: TextStyle(
                     color: ColorConstants.buttonColor,
                     fontSize: 40,
-                    fontFamily: 'Neohellenic',
+                    fontFamily: 'Lato',
                   ),
                   'Saugatuck Douglas'
               ),
@@ -75,7 +75,7 @@ class HomePageState extends State<HomePage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
-                    fontFamily: 'Neohellenic',
+                    fontFamily: 'Lato',
                   ),
                   'Test your knowledge! \n'
                       'Take a 10 question quiz to learn more about some of the Art Coast’s most iconic attractions. \n'

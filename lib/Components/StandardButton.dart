@@ -22,7 +22,7 @@ class StandardButton extends StatelessWidget {
           style: const TextStyle(
             fontSize: 20,
             color: Colors.white,
-            fontFamily: 'Neohellenic',
+            fontFamily: 'Lato',
           ),
         ),
       ),

@@ -94,5 +94,9 @@ flutter:
     - family: Neohellenic
       fonts:
         - asset: fonts/GFSNeohellenic-Regular.ttf
+
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Regular.ttf
   assets:
     - assets/
