@@ -41,10 +41,12 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: ColorConstants.whiteBackround,
       appBar: AppBar(
+        toolbarHeight: 40,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.blueAccent,
         title: const Text(
             style: TextStyle(
+              fontSize: 24,
               color: Colors.white,
               fontFamily: 'Lato',
             ),
@@ -56,12 +58,12 @@ class HomePageState extends State<HomePage> {
         children: <Widget>[
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text(
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: ColorConstants.buttonColor,
-                    fontSize: 40,
+                    fontSize: 36,
                     fontFamily: 'Lato',
                   ),
                   'Saugatuck Douglas'
@@ -70,11 +72,11 @@ class HomePageState extends State<HomePage> {
           ),
           const Center(
             child: Padding(
-              padding: EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(10.0),
               child: Text(
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontFamily: 'Lato',
                   ),
                   'Test your knowledge! \n'
@@ -85,7 +87,7 @@ class HomePageState extends State<HomePage> {
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(8.0),
               child: StandardButton("Saugatuck Chain Ferry", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const QGov();
@@ -95,7 +97,7 @@ class HomePageState extends State<HomePage> {
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(8.0),
               child: StandardButton("Star of Saugatuck", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const QStar();
@@ -105,7 +107,7 @@ class HomePageState extends State<HomePage> {
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(8.0),
               child: StandardButton("Mount Baldhead", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const QBald();
@@ -115,7 +117,7 @@ class HomePageState extends State<HomePage> {
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(8.0),
               child: StandardButton("Oval Beach and Lake Michigan", () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const QBeach();
@@ -126,34 +128,32 @@ class HomePageState extends State<HomePage> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+        height: 52,
         color: Colors.blueAccent,
-        child: Container(
-          padding: const EdgeInsets.only(bottom: 15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
-                ),
-                onPressed: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const InfoPage();
-                      },
-                    ),
-                  ),
-                },
-                child: const Icon(
-                  Icons.info,
-                  size: 30,
-                  color: Colors.white,
-                ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
               ),
-            ],
-          ),
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const InfoPage();
+                    },
+                  ),
+                ),
+              },
+              child: const Icon(
+                Icons.info,
+                size: 30,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
       ),
     );

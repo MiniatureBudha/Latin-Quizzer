@@ -97,7 +97,7 @@ class InfoPageState extends State<InfoPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: ColorConstants.buttonColor,
-                    fontSize: 40,
+                    fontSize: 30,
                     fontFamily: 'Lato',
                   ),
                   'Saugatuck Douglas'

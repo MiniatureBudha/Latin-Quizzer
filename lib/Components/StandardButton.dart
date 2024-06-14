@@ -9,8 +9,8 @@ class StandardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 250,
-      height: 60,
+      width: 240,
+      height: 54,
       child: OutlinedButton(
         style: TextButton.styleFrom(
           backgroundColor: ColorConstants.buttonColor,
@@ -20,7 +20,7 @@ class StandardButton extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            fontSize: 20,
+            fontSize: 18,
             color: Colors.white,
             fontFamily: 'Lato',
           ),
