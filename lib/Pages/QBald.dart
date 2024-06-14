@@ -260,7 +260,7 @@ class QBaldState extends State<QBald> {
 
   Widget goodImage(){
     if(correctlyAnswered/q.size() >= .8){
-      return const Image(image: ResizeImage(AssetImage('assets/BlueStar.png'), width: 150, height: 120));
+      return const Image(image: ResizeImage(AssetImage('assets/BlueStar.jpg'), width: 150, height: 120));
     }
     else{
       return const SizedBox(
@@ -383,7 +383,7 @@ class QBaldState extends State<QBald> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              OutlinedButton(
+              TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                 ),

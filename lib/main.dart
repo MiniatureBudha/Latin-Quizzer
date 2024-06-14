@@ -132,7 +132,7 @@ class HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              OutlinedButton(
+              TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                 ),

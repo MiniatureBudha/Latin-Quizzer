@@ -154,7 +154,7 @@ class InfoPageState extends State<InfoPage> {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(5.0),
-              child: StandardButton("City of Douglas Website", () {
+              child: StandardButton("Oval Beach City of Douglas Website", () {
                 _launchUrl7();
               }),
             ),
@@ -162,7 +162,7 @@ class InfoPageState extends State<InfoPage> {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(5.0),
-              child: StandardButton("Saugatuck Douglas Website", () {
+              child: StandardButton("Oval Beach Saugatuck Douglas Website", () {
                 _launchUrl8();
               }),
             ),
@@ -175,7 +175,7 @@ class InfoPageState extends State<InfoPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            OutlinedButton(
+            TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: Colors.blueAccent,
               ),
