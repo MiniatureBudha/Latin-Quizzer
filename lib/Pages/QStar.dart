@@ -315,7 +315,7 @@ class QStarState extends State<QStar> {
             children: <Widget>[
               FAProgressBar(
                 size: 5,
-                progressColor: Colors.blueAccent,
+                progressColor: Colors.yellowAccent,
                 currentValue: progressPercent,
               ),
               Expanded(

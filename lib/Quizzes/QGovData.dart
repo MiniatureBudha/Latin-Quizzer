@@ -11,7 +11,7 @@ class QGovData {
     Question("The Saugatuck Chain Ferry is one of how many remaining hand cranked chain ferries in the US?", "1", "2", "3", "5", "1"),
     Question("The Saugatuck Chain Ferry crew wear shirts with what tagline?", "Let Us Crank Your Chain", "Ball and Chain", "Human-Powered Chain Ferry", "Don’t Yank My Chain", "Let Us Crank Your Chain"),
     Question("How far across the Kalamazoo River does the Saugatuck Chain Ferry travel?", "350 feet", "400 feet", "450 feet", "500 feet", "350 feet"),
-    Question("The Saugatuck Chain Ferry is propelled by a slender chain with 1-inch links fed through a sprocket as the hand crank rotates. How far below the surface of the Kalamazoo River does the chain rise and fall as the ferry passes?", "15 feet", "10 feet", "20 feet", "25 feet", "15 feet"),
+    Question("The ferry is propelled by a slender chain with 1-inch links fed through a sprocket as the hand crank rotates. How far below the surface of the river does the chain rise and fall as the ferry passes?", "15 feet", "10 feet", "20 feet", "25 feet", "15 feet"),
     Question("How long does it take to travel across the river on the Saugatuck Chain Ferry?", "1.5 - 3.0 minutes", "3.0 - 4.5 minutes", "4.5 - 6.0 minutes", "6.0 - 7.5 minutes", "1.5 - 3.0 minutes"),
     Question("Who owns the Saugatuck Chain Ferry?", "The City of Saugatuck", "An local individual owner", "A national ferry company", "The Star of Saugatuck", "The City of Saugatuck"),
   ];

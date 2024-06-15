@@ -315,7 +315,7 @@ class QBeachState extends State<QBeach> {
             children: <Widget>[
               FAProgressBar(
                 size: 5,
-                progressColor: Colors.blueAccent,
+                progressColor: Colors.yellowAccent,
                 currentValue: progressPercent,
               ),
               Expanded(

@@ -299,7 +299,7 @@ class QBaldState extends State<QBald> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Mount Balhdead',
+          'Mount Baldhead',
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Lato',
@@ -315,7 +315,7 @@ class QBaldState extends State<QBald> {
             children: <Widget>[
               FAProgressBar(
                 size: 5,
-                progressColor: Colors.blueAccent,
+                progressColor: Colors.yellowAccent,
                 currentValue: progressPercent,
               ),
               Expanded(

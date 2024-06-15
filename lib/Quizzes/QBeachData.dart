@@ -4,10 +4,10 @@ import 'dart:math';
 class QBeachData {
   int _questionNumber = 0;
   final List<Question> _questionBank = [
-    Question("Which of the following was Oval Beach NOT named one of?", "Top 10 Beaches Worldwide - Tripadvisor", "Top 25 Beaches in the World - Conde Nast Traveler", "Top 2 Freshwater Beaches in the USA - National Geographic Traveler", "Top 5 Beaches in the USA - MTV", "Top 10 Beaches Worldwide - Tripadvisor"),
+    Question("Which of the following publications has NOT named Oval Beach on a best of list?", "Tripadvisor", "Conde Nast Traveler", "National Geographic Traveler", "MTV", "Tripadvisor"),
     Question("Oval Beach is bordered on the north by which body of water?", "Kalamazoo River", "Douglas River", "Michigan River", "Saugatuck River", "Kalamazoo River"),
     Question("Approximately how many miles north is the walk on foot through the Saugatuck Harbor Natural Area from Oval Beach to the mouth of the Kalamazoo River?", "1 mile", "0.5 miles", "1.5 mile", "2 mile", "1 mile"),
-    Question("Why was Oval Beach named Oval Beach?", "Its first parking lot was poured in the shape of an “oval”", "It was named after an old, nearby ghost town named “Oval”", "It was the hometown of Saugatuck’s first settler", "It was named after a popular dance hall in town named “Oval Pavillion”", "Its first parking lot was poured in the shape of an “oval”"),
+    Question("It is believed that Oval Beach was named after which of the following?", "An oval-shaped parking lot", "A nearby ghost town", "Saugatuck’s first settler", "A popular dance hall", "An oval-shaped parking lot"),
     Question("Prior to becoming a permanent settlement in 1830, Oval Beach was a summer retreat for which Native American tribe?", "Pottawatomie", "Chippewa", "Odawa", "Menominee", "Pottawatomie"),
     Question("Which Great Lake is wholly located within the United States?", "Lake Michigan", "Lake Superior", "Lake Huron", "Lake Erie", "Lake Michigan"),
     Question("Lake Michigan is second in terms of volume of water to which Great Lake?", "Lake Superior", "Lake Ontario", "Lake Huron", "Lake Erie", "Lake Superior"),

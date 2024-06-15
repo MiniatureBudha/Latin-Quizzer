@@ -17,7 +17,7 @@ class ExpandableButton extends StatelessWidget {
 
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(2.0),
+        padding: const EdgeInsets.all(1.0),
         child: OutlinedButton(
           style: TextButton.styleFrom(
             backgroundColor: color,
